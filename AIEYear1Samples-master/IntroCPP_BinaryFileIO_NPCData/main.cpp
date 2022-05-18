@@ -24,7 +24,7 @@
 
 int main(int argc, char* argv[])
 {
-    // Initialization
+    // Initialization of data and window
     //--------------------------------------------------------------------------------------
     int screenWidth = 800;
     int screenHeight = 450;
@@ -51,10 +51,11 @@ int main(int argc, char* argv[])
         // TODO: Update your variables here
         //----------------------------------------------------------------------------------
 
+        //adjusts record index by index of -1
         if (IsKeyPressed(KEY_LEFT))
         {
             currentRecordIdx--;
-            if (currentRecordIdx < 0)
+            if (currentRecordIdx < 0) 
             {
                 currentRecordIdx = 0;
             }
@@ -62,12 +63,13 @@ int main(int argc, char* argv[])
             recordTexture = LoadTextureFromImage(currentRecord->image);
         }
 
+        //adjusts record index by index of +1
         if (IsKeyPressed(KEY_RIGHT))
         {
             currentRecordIdx++;
             if (currentRecordIdx >= data.GetRecordCount())
             {
-                currentRecordIdx = data.GetRecordCount();
+                currentRecordIdx = (data.GetRecordCount() - 1);
             }
             currentRecord = data.GetRecord(currentRecordIdx);
             recordTexture = LoadTextureFromImage(currentRecord->image);
