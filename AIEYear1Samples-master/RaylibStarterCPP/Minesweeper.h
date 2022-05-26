@@ -31,7 +31,10 @@ protected:
 private:
 
 	int m_windowWidth = m_tileSize * 32;
-	int m_windowHeight = m_tileSize * 25;
+	int m_windowHeight = m_tileSize * 27;
+
+	int bombTotal = 0;
+	int flagsLeft;
 
 	static const int m_cols = 32;
 	static const int m_rows = 25;

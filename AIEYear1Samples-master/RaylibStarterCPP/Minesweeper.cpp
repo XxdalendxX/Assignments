@@ -1,6 +1,7 @@
 #include "Minesweeper.h"
 #include "raylib.h"
 #include <conio.h>
+#include <string>
 
 #define RAYGUI_IMPLEMENTATION
 #define RAYGUI_SUPPORT_ICONS
@@ -44,9 +45,14 @@ void Minesweeper::Load()
 		{
 			m_tiles[i][j] = rand() % 800 < 150;
 			tileState[i][j] = 0;
+
+			if (m_tiles[i][j] == 1)
+			{
+				bombTotal++;
+			}
 		}
 	}
-	ClearBackground(RAYWHITE);
+	flagsLeft = bombTotal;
 }
 
 void Minesweeper::Unload()
@@ -63,7 +69,10 @@ void Minesweeper::Update(float dt)
 
 		int xPos = floor(mousePos.x / 32);
 		int yPos = floor(mousePos.y / 32);
-		UpdateTile(xPos, yPos);
+		if (yPos < 25)
+		{
+			UpdateTile(xPos, yPos);
+		}
 	}
 
 	if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON))
@@ -72,7 +81,10 @@ void Minesweeper::Update(float dt)
 
 		int xPos = floor(mousePos.x / 32);
 		int yPos = floor(mousePos.y / 32);
-		FlagTile(xPos, yPos);
+		if (yPos < 26)
+		{
+			FlagTile(xPos, yPos);
+		}
 	}
 }
 
@@ -150,7 +162,7 @@ void Minesweeper::Draw()
 		}
 	}
 
-	for (int y = 1; y < m_rows; y++)
+	for (int y = 1; y < m_rows + 1; y++)
 	{
 		DrawLine(0, y * 32, (32 * 32), y * 32, DARKGRAY);
 	}
@@ -160,7 +172,12 @@ void Minesweeper::Draw()
 		DrawLine(x * 32, 0, x * 32, (25 * 32), DARKGRAY);
 	}
 
+	DrawText("Total Bombs: ", 14, 32 * 26, 24, BLACK);
+	DrawText(std::to_string(bombTotal).c_str(), 14+(32*5), 32*26, 24, BLACK);
 
+	DrawText("Flags Left: ", 14+(32*8), 32 * 26, 24, BLACK);
+	DrawText(std::to_string(flagsLeft).c_str(), (32 * 13), 32 * 26, 24, BLACK);
+	
 	EndDrawing();
 }
 
@@ -264,12 +281,14 @@ void Minesweeper::FlagTile(int xPos, int yPos)
 {
 	int i = xPos;
 	int j = yPos;
-	if (tileState[i][j] == 0)
+	if (tileState[i][j] == 0 && flagsLeft > 0)
 	{
 		tileState[i][j] = 2;
+		flagsLeft--;
 	}
 	else if (tileState[i][j] == 2)
 	{
 		tileState[i][j] = 0;
+		flagsLeft++;
 	}
 }
