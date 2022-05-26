@@ -20,7 +20,8 @@ private:
 	void Update(float deltaTime);
 	void Draw();
 
-	int CalculateTileState(int index, int* currentState);
+	int CalculateTileState(int xPos, int yPos);
+	void UpdateTile(int xPos, int yPos);
 
 protected:
 
@@ -31,10 +32,10 @@ private:
 	int m_windowWidth = m_tileSize * 32;
 	int m_windowHeight = m_tileSize * 25;
 
-	static const int m_cols = 25;
-	static const int m_rows = 32;
+	static const int m_cols = 32;
+	static const int m_rows = 25;
 
-	int m_tiles[m_cols * m_rows];
+	int m_tiles[m_cols][m_rows];
 
 	int* m_grid = nullptr;
 	int* m_gridBuffer = nullptr;
