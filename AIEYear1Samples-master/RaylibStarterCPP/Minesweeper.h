@@ -22,6 +22,7 @@ private:
 
 	int CalculateTileState(int xPos, int yPos);
 	void UpdateTile(int xPos, int yPos);
+	void FlagTile(int xPos, int yPos);
 
 protected:
 
@@ -36,7 +37,6 @@ private:
 	static const int m_rows = 25;
 
 	int m_tiles[m_cols][m_rows];
+	int tileState[m_cols][m_rows]; //0 = hidden, 1 = revealed, 2 = flagged
 
-	int* m_grid = nullptr;
-	int* m_gridBuffer = nullptr;
 };

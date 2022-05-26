@@ -43,6 +43,7 @@ void Minesweeper::Load()
 		for (int i = 0; i < m_cols; i++)
 		{
 			m_tiles[i][j] = rand() % 800 < 150;
+			tileState[i][j] = 0;
 		}
 	}
 	ClearBackground(RAYWHITE);
@@ -64,6 +65,15 @@ void Minesweeper::Update(float dt)
 		int yPos = floor(mousePos.y / 32);
 		UpdateTile(xPos, yPos);
 	}
+
+	if (IsMouseButtonPressed(MOUSE_RIGHT_BUTTON))
+	{
+		Vector2 mousePos = GetMousePosition();
+
+		int xPos = floor(mousePos.x / 32);
+		int yPos = floor(mousePos.y / 32);
+		FlagTile(xPos, yPos);
+	}
 }
 
 void Minesweeper::Draw()
@@ -72,9 +82,73 @@ void Minesweeper::Draw()
 	ClearBackground(RAYWHITE);
 
 	
-	//DrawRectangle(32, 64, 32, 32, RAYWHITE);
-	//DrawText("!", 46, 70, 24, BLACK);
 	
+	for (int j = 0; j < m_rows; j++)
+	{
+		for (int i = 0; i < m_cols; i++)
+		{
+			if (tileState[i][j] == 1)
+			{
+				int state = CalculateTileState(i, j); // pass in the tilevalue
+
+				if (state == 0) //blank tile
+				{
+					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+				}
+				else if (state == 1) //1 tile
+				{
+					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+					DrawText("1", i * 32 + 14, j * 32 + 6, 24, BLUE);
+				}
+				else if (state == 2) //2 tile
+				{
+					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+					DrawText("2", i * 32 + 14, j * 32 + 6, 24, GREEN);
+				}
+				else if (state == 3) //3 tile
+				{
+					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+					DrawText("3", i * 32 + 14, j * 32 + 6, 24, DARKGREEN);
+				}
+				else if (state == 4) //4 tile
+				{
+					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+					DrawText("4", i * 32 + 14, j * 32 + 6, 24, PURPLE);
+				}
+				else if (state == 5) //5 tile
+				{
+					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+					DrawText("5", i * 32 + 14, j * 32 + 6, 24, YELLOW);
+				}
+				else if (state == 6) //6 tile
+				{
+					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+					DrawText("6", i * 32 + 14, j * 32 + 6, 24, RED);
+				}
+				else if (state == 7) //7 tile
+				{
+					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+					DrawText("7", i * 32 + 14, j * 32 + 6, 24, WHITE);
+				}
+				else if (state == 8) //8 tile
+				{
+					DrawRectangle(i * 32 * 32, j * 32, 32, 32, GRAY);
+					DrawText("8", i * 32 + 14, j * 32 + 6, 24, BEIGE);
+				}
+				else if (state == 9) //bomb tile
+				{
+					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+					DrawText("*", i * 32 + 14, j * 32 + 6, 24, BLACK);
+				}
+			}
+
+			if (tileState[i][j] == 2)
+			{
+				DrawRectangle(i * 32, j * 32, 32, 32, RAYWHITE);
+				DrawText("!", i * 32 + 14, j * 32 + 6, 24, BLACK);
+			}
+		}
+	}
 
 	for (int y = 1; y < m_rows; y++)
 	{
@@ -96,6 +170,7 @@ int Minesweeper::CalculateTileState(int xPos, int yPos)
 	// Calculate the row/col index
 	int col = xPos;
 	int row = yPos;
+	
 	
 
 	bool isBomb = m_tiles[xPos][yPos] != 0;
@@ -177,57 +252,24 @@ int Minesweeper::CalculateTileState(int xPos, int yPos)
 	
 void Minesweeper::UpdateTile(int xPos, int yPos)
 {
-	int state = CalculateTileState(xPos, yPos); // pass in the tilevalue
 	int i = xPos;
 	int j = yPos;
+	if (tileState[i][j] == 0)
+	{
+		tileState[i][j] = 1;
+	}
+}
 
-	if (state == 0) //blank tile
+void Minesweeper::FlagTile(int xPos, int yPos)
+{
+	int i = xPos;
+	int j = yPos;
+	if (tileState[i][j] == 0)
 	{
-		DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+		tileState[i][j] = 2;
 	}
-	else if (state == 1) //1 tile
+	else if (tileState[i][j] == 2)
 	{
-		DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
-		DrawText("1", i * 32 + 14, j * 32 + 6, 24, BLUE);
-	}
-	else if (state == 2) //2 tile
-	{
-		DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
-		DrawText("2", i * 32 + 14, j * 32 + 6, 24, GREEN);
-	}
-	else if (state == 3) //3 tile
-	{
-		DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
-		DrawText("3", i * 32 + 14, j * 32 + 6, 24, DARKGREEN);
-	}
-	else if (state == 4) //4 tile
-	{
-		DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
-		DrawText("4", i * 32 + 14, j * 32 + 6, 24, PURPLE);
-	}
-	else if (state == 5) //5 tile
-	{
-		DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
-		DrawText("5", i * 32 + 14, j * 32 + 6, 24, YELLOW);
-	}
-	else if (state == 6) //6 tile
-	{
-		DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
-		DrawText("6", i * 32 + 14, j * 32 + 6, 24, RED);
-	}
-	else if (state == 7) //7 tile
-	{
-		DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
-		DrawText("7", i * 32 + 14, j * 32 + 6, 24, WHITE);
-	}
-	else if (state == 8) //8 tile
-	{
-		DrawRectangle(i * 32 * 32, j * 32, 32, 32, GRAY);
-		DrawText("8", i * 32 + 14, j * 32 + 6, 24, BEIGE);
-	}
-	else if (state == 9) //bomb tile
-	{
-		DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
-		DrawText("*", i * 32 + 14, j * 32 + 6, 24, BLACK);
+		tileState[i][j] = 0;
 	}
 }
