@@ -389,7 +389,6 @@ bool Minesweeper::CheckWinState()
 	return true;
 }
 
-<<<<<<< HEAD
 void Minesweeper::FirstClick(int xPos, int yPos)
 {
 	for (int j = 0; j < m_rows; j++)
@@ -411,6 +410,3 @@ void Minesweeper::FirstClick(int xPos, int yPos)
 	}
 	flagsLeft = bombTotal;
 }
-=======
-//something something test...
->>>>>>> Flood_Fill_Function
