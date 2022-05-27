@@ -43,16 +43,10 @@ void Minesweeper::Load()
 	{
 		for (int i = 0; i < m_cols; i++)
 		{
-			m_tiles[i][j] = rand() % 800 < 150;
+			m_tiles[i][j] = 0;
 			tileState[i][j] = 0;
-
-			if (m_tiles[i][j] == 1)
-			{
-				bombTotal++;
-			}
 		}
 	}
-	flagsLeft = bombTotal;
 }
 
 void Minesweeper::Unload()
@@ -62,7 +56,25 @@ void Minesweeper::Unload()
 
 void Minesweeper::Update(float dt)
 {
+	char userInput;
 
+	while (firstClick == false)
+	{
+		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+		{
+			Vector2 mousePos = GetMousePosition();
+
+			int xPos = floor(mousePos.x / 32);
+			int yPos = floor(mousePos.y / 32);
+			if (yPos < 25)
+			{
+				FirstClick(xPos, yPos);
+				firstClick = true;
+			}
+		}
+		Draw();
+	}
+	
 	if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
 	{
 		Vector2 mousePos = GetMousePosition();
@@ -187,11 +199,14 @@ void Minesweeper::Draw()
 		DrawLine(x * 32, 0, x * 32, (25 * 32), DARKGRAY);
 	}
 
-	DrawText("Total Bombs: ", 14, 32 * 26, 24, BLACK);
-	DrawText(std::to_string(bombTotal).c_str(), 14+(32*5), 32*26, 24, BLACK);
+	if (firstClick == true)
+	{
+		DrawText("Total Bombs: ", 14, 32 * 26, 24, BLACK);
+		DrawText(std::to_string(bombTotal).c_str(), 14 + (32 * 5), 32 * 26, 24, BLACK);
 
-	DrawText("Flags Left: ", (32*26), 32 * 26, 24, BLACK);
-	DrawText(std::to_string(flagsLeft).c_str(), 14+(32 * 30), 32 * 26, 24, BLACK);
+		DrawText("Flags Left: ", (32 * 26), 32 * 26, 24, BLACK);
+		DrawText(std::to_string(flagsLeft).c_str(), 14 + (32 * 30), 32 * 26, 24, BLACK);
+	}
 
 	if (loseCondition == true)
 	{
@@ -374,4 +389,24 @@ bool Minesweeper::CheckWinState()
 	return true;
 }
 
-//something something test...
+void Minesweeper::FirstClick(int xPos, int yPos)
+{
+	for (int j = 0; j < m_rows; j++)
+	{
+		for (int i = 0; i < m_cols; i++)
+		{
+			m_tiles[i][j] = rand() % 800 < 150;
+
+			if (i == xPos && j == yPos)
+			{
+				tileState[i][j] = 1;
+			}
+
+			if (m_tiles[i][j] == 1)
+			{
+				bombTotal++;
+			}
+		}
+	}
+	flagsLeft = bombTotal;
+}
