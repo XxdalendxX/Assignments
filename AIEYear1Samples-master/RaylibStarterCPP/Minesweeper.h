@@ -47,6 +47,6 @@ private:
 	static const int m_rows = 25;
 
 	int m_tiles[m_cols][m_rows];
-	int tileState[m_cols][m_rows]; //0 = hidden, 1 = revealed, 2 = flagged
+	int tileState[m_cols][m_rows]; //0 = hidden, 1 = revealed, 2 = flagged, 3 = incorrect flag, 4 = winCondition bomb location
 
 };
