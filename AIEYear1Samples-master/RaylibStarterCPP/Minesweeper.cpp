@@ -86,6 +86,8 @@ void Minesweeper::Update(float dt)
 			FlagTile(xPos, yPos);
 		}
 	}
+
+	winCondition = CheckWinState();
 }
 
 void Minesweeper::Draw()
@@ -106,6 +108,7 @@ void Minesweeper::Draw()
 				if (state == 0) //blank tile
 				{
 					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
+
 				}
 				else if (state == 1) //1 tile
 				{
@@ -151,6 +154,7 @@ void Minesweeper::Draw()
 				{
 					DrawRectangle(i * 32, j * 32, 32, 32, GRAY);
 					DrawText("*", i * 32 + 14, j * 32 + 6, 24, BLACK);
+					loseCondition = true;
 				}
 			}
 
@@ -158,6 +162,17 @@ void Minesweeper::Draw()
 			{
 				DrawRectangle(i * 32, j * 32, 32, 32, RAYWHITE);
 				DrawText("!", i * 32 + 14, j * 32 + 6, 24, BLACK);
+			}
+
+			if (tileState[i][j] == 3)
+			{
+				DrawRectangle(i * 32, j * 32, 32, 32, RAYWHITE);
+				DrawText("X", i * 32 + 9, j * 32 + 6, 24, RED);
+			}
+
+			if (tileState[i][j] == 4)
+			{
+				DrawRectangle(i * 32, j * 32, 32, 32, DARKGREEN);
 			}
 		}
 	}
@@ -175,8 +190,52 @@ void Minesweeper::Draw()
 	DrawText("Total Bombs: ", 14, 32 * 26, 24, BLACK);
 	DrawText(std::to_string(bombTotal).c_str(), 14+(32*5), 32*26, 24, BLACK);
 
-	DrawText("Flags Left: ", 14+(32*8), 32 * 26, 24, BLACK);
-	DrawText(std::to_string(flagsLeft).c_str(), (32 * 13), 32 * 26, 24, BLACK);
+	DrawText("Flags Left: ", (32*26), 32 * 26, 24, BLACK);
+	DrawText(std::to_string(flagsLeft).c_str(), 14+(32 * 30), 32 * 26, 24, BLACK);
+
+	if (loseCondition == true)
+	{
+		DrawText("You Lost", (32 * 15), (32 * 25), 24, BLACK);
+		DrawText("Press Escape to Close The Application", (32 * 9), (32 * 26), 24, BLACK);
+
+		for (int j = 0; j < m_rows; j++)
+		{
+			for (int i = 0; i < m_cols; i++)
+			{
+				if (tileState[i][j] == 0)
+				{
+					tileState[i][j] = 1;
+				}
+				if (tileState[i][j] == 2)
+				{
+					if (CalculateTileState(i, j) != 9)
+					{
+						tileState[i][j] = 3;
+					}
+				}
+			}
+		}
+	}
+
+	if (winCondition == true)
+	{
+		DrawText("You Win!", (32 * 15), (32 * 25), 24, BLACK);
+		DrawText("Press Escape to Close The Application", (32 * 9), (32 * 26), 24, BLACK);
+
+		for (int j = 0; j < m_rows; j++)
+		{
+			for (int i = 0; i < m_cols; i++)
+			{
+				if (tileState[i][j] == 2 || tileState[i][j] == 0)
+				{
+					if (CalculateTileState(i, j) == 9)
+					{
+						tileState[i][j] = 4;
+					}
+				}
+			}
+		}
+	}
 	
 	EndDrawing();
 }
@@ -291,4 +350,26 @@ void Minesweeper::FlagTile(int xPos, int yPos)
 		tileState[i][j] = 0;
 		flagsLeft++;
 	}
+}
+
+bool Minesweeper::CheckWinState()
+{
+	if (loseCondition == true)
+	{
+		return false;
+	}
+	for (int j = 0; j < m_rows; j++)
+	{
+		for (int i = 0; i < m_cols; i++)
+		{
+			if (tileState[i][j] == 0 || tileState[i][j] == 2)
+			{
+				if (CalculateTileState(i, j) != 9)
+				{
+					return false;
+				}
+			}
+		}
+	}
+	return true;
 }

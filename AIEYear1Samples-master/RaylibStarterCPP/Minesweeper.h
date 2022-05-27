@@ -23,6 +23,7 @@ private:
 	int CalculateTileState(int xPos, int yPos);
 	void UpdateTile(int xPos, int yPos);
 	void FlagTile(int xPos, int yPos);
+	bool CheckWinState();
 
 protected:
 
@@ -35,6 +36,9 @@ private:
 
 	int bombTotal = 0;
 	int flagsLeft;
+
+	bool winCondition = false;
+	bool loseCondition = false;
 
 	static const int m_cols = 32;
 	static const int m_rows = 25;
