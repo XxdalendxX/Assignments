@@ -20,6 +20,8 @@ private:
 	void Update(float deltaTime);
 	void Draw();
 
+	void FirstClick(int xPos, int yPos);
+
 	int CalculateTileState(int xPos, int yPos);
 	void UpdateTile(int xPos, int yPos);
 	void FlagTile(int xPos, int yPos);
@@ -37,6 +39,7 @@ private:
 	int bombTotal = 0;
 	int flagsLeft;
 
+	bool firstClick = false;
 	bool winCondition = false;
 	bool loseCondition = false;
 
