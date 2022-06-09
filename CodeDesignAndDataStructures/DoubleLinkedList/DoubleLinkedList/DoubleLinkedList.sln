@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DoubleLinkedList", "DoubleLinkedList\DoubleLinkedList.vcxproj", "{65B7A420-829B-46E8-A5C1-E69AC393414A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RaylibStarterCPP", "RaylibStarterCPP\RaylibStarterCPP.vcxproj", "{66F97E22-5E02-4257-B75C-DA71B7A17BFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{65B7A420-829B-46E8-A5C1-E69AC393414A}.Release|x64.Build.0 = Release|x64
 		{65B7A420-829B-46E8-A5C1-E69AC393414A}.Release|x86.ActiveCfg = Release|Win32
 		{65B7A420-829B-46E8-A5C1-E69AC393414A}.Release|x86.Build.0 = Release|Win32
+		{66F97E22-5E02-4257-B75C-DA71B7A17BFF}.Debug|x64.ActiveCfg = Debug|x64
+		{66F97E22-5E02-4257-B75C-DA71B7A17BFF}.Debug|x64.Build.0 = Debug|x64
+		{66F97E22-5E02-4257-B75C-DA71B7A17BFF}.Debug|x86.ActiveCfg = Debug|Win32
+		{66F97E22-5E02-4257-B75C-DA71B7A17BFF}.Debug|x86.Build.0 = Debug|Win32
+		{66F97E22-5E02-4257-B75C-DA71B7A17BFF}.Release|x64.ActiveCfg = Release|x64
+		{66F97E22-5E02-4257-B75C-DA71B7A17BFF}.Release|x64.Build.0 = Release|x64
+		{66F97E22-5E02-4257-B75C-DA71B7A17BFF}.Release|x86.ActiveCfg = Release|Win32
+		{66F97E22-5E02-4257-B75C-DA71B7A17BFF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
