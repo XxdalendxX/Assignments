@@ -9,9 +9,7 @@ Node::Node()
 }
 Node::Node(int value, Node* next, Node* Previous)
 {
-	head = new Node(0, nullptr, nullptr);
-	tail = new Node(0, nullptr, head);
-	head->next = tail;
+	_value = value;
 }
 Node::~Node()
 {
@@ -23,12 +21,14 @@ Node::~Node()
 void Node::InsertHeadNode(int value)
 {
 	Node* newNode = new Node(value, head, head->next);
+	head->next->previous = newNode;
 	head->next = newNode;
 }
 
 void Node::InsertTailNode(int value)
 {
 	Node* newNode = new Node(value, tail->previous, tail);
+	tail->previous->next = newNode;
 	tail->previous = newNode;
 }
 
@@ -117,12 +117,12 @@ bool Node::NodeCheck()
 ////////////////////////////////////////////////////////////////////////////////////////////
 int Node::ReturnHeadValue()
 {
-	return head->next->value;
+	return head->next->_value;
 }
 
 int Node::ReturnTailValue()
 {
-	return tail->previous->value;
+	return tail->previous->_value;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -136,12 +136,12 @@ void Node::ListSort()
 		bool swap = false;
 		while (currentNode != tail)
 		{
-			if (currentNode->value > currentNode->next->value)
+			if (currentNode->_value > currentNode->next->_value)
 			{
 				swap = true;
-				int temp = currentNode->value;
-				currentNode->value = currentNode->next->value;
-				currentNode->next->value = temp;
+				int temp = currentNode->_value;
+				currentNode->_value = currentNode->next->_value;
+				currentNode->next->_value = temp;
 			}
 			currentNode = currentNode->next;
 		}

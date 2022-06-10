@@ -1,4 +1,4 @@
-
+#pragma
 
 class Node
 {
@@ -8,7 +8,7 @@ public:
 	Node(int value, Node* next, Node* Previous);
 	~Node();
 
-private:
+public:
 
 	void InsertHeadNode(int value);
 	void DeleteHeadNode();
@@ -33,7 +33,7 @@ protected:
 
 public:
 
-	int value;
+	int _value;
 
 	Node* next;
 	Node* previous;

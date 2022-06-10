@@ -78,38 +78,38 @@ int main(int argc, char* argv[])
 
         if (GuiButton(Rectangle{ 160, 95, 125, 30 }, GuiIconText(RICON_OK_TICK, "Insert at position")))
         {
-            m_node.InsertArbitraryNode(valueBoxValue);
+            m_node.InsertArbitraryNode(positionBoxValue, valueBoxValue);
         }
 
         if (GuiButton(Rectangle{ 295, 25, 125, 30 }, GuiIconText(RICON_CROSS, "Delete from head")))
         {
-            m_node.DeleteHeadNode(valueBoxValue);
+            m_node.DeleteHeadNode();
         }
 
         if (GuiButton(Rectangle{ 295, 60, 125, 30 }, GuiIconText(RICON_CROSS, "Delete from tail")))
         {
-            m_node.DeleteTailNode(valueBoxValue);
+            m_node.DeleteTailNode();
         }
 
         if (GuiButton(Rectangle{ 295, 95, 125, 30 }, GuiIconText(RICON_CROSS, "Delete at position")))
         {
-            m_node.DeleteArbitraryNode(valueBoxValue);
+            m_node.DeleteArbitraryNode(positionBoxValue);
         }
 
         if (GuiButton(Rectangle{ 25, 150, 125, 30 }, GuiIconText(RICON_ARROW_RIGHT_FILL, "Sort List")))
         {
-            m_node.ListSort(valueBoxValue);
+            m_node.ListSort();
         }
 
         if (GuiButton(Rectangle{ 160, 150, 125, 30 }, GuiIconText(RICON_HEART, "Head & tail values")))
         {
-            m_node.ReturnHeadValue(valueBoxValue);
-            m_node.ReturnTailValue(valueBoxValue);
+            m_node.ReturnHeadValue();
+            m_node.ReturnTailValue();
         }
 
         if (GuiButton(Rectangle{ 295, 150, 125, 30 }, GuiIconText(RICON_STAR, "Check node total")))
         {
-            m_node.NodeFind(valueBoxValue);
+            m_node.NodeCount();
         }
 
 
