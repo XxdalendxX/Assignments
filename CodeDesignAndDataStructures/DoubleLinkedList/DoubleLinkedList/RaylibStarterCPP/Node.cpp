@@ -1,9 +1,16 @@
 #include"Node.h"
 
+
+Node::Node()
+{
+	head = new Node(0, nullptr, nullptr);
+	tail = new Node(0, nullptr, head);
+	head->next = tail;
+}
 Node::Node(int value, Node* next, Node* Previous)
 {
-	head = new Node( 0, nullptr, nullptr );
-	tail = new Node( 0, nullptr, head );
+	head = new Node(0, nullptr, nullptr);
+	tail = new Node(0, nullptr, head);
 	head->next = tail;
 }
 Node::~Node()
@@ -147,15 +154,5 @@ void Node::ListSort()
 
 		currentNode = head->next;
 	}
-	
-}
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-int main() 
-{
-	
 
-
-	return 0;
 }

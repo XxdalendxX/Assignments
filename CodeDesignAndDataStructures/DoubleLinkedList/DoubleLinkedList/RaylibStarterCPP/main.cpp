@@ -25,17 +25,25 @@
 #define RAYGUI_SUPPORT_ICONS
 #include "raygui.h"
 
+#include "Node.h"
 int main(int argc, char* argv[])
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    int screenWidth = 800;
-    int screenHeight = 450;
+    int screenWidth = 1900;
+    int screenHeight = 950;
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    InitWindow(screenWidth, screenHeight, "Have you ever looked at someone and wondered... \"What is going on inside their head?\"");
 
     SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
+
+    int valueBoxValue = 0;
+    bool valueBoxEditMode = false;
+    int positionBoxValue = 0;
+    bool positionBoxEditMode = false;
+
+    Node m_node;
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -44,14 +52,67 @@ int main(int argc, char* argv[])
         //----------------------------------------------------------------------------------
         // TODO: Update your variables here
         //----------------------------------------------------------------------------------
-
+        
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+        GuiSetStyle(TEXTBOX, TEXT_ALIGNMENT, GUI_TEXT_ALIGN_CENTER);
+
+        DrawText("Value", 25, 20, 24, BLACK);
+        if (GuiValueBox(Rectangle{ 25, 40, 125, 30 }, NULL, &valueBoxValue, 0, 69420, valueBoxEditMode)) valueBoxEditMode = !valueBoxEditMode;
+        DrawText("Position", 25, 80, 24, BLACK);
+        if (GuiValueBox(Rectangle{ 25, 100, 125, 30 }, NULL, &positionBoxValue, 0, 69420, positionBoxEditMode)) positionBoxEditMode = !positionBoxEditMode;
+
+        if (GuiButton(Rectangle{ 160, 25, 125, 30 }, GuiIconText(RICON_OK_TICK, "Insert at head")))
+        {
+            m_node.InsertHeadNode(valueBoxValue);
+        }
+
+        if (GuiButton(Rectangle{ 160, 60, 125, 30 }, GuiIconText(RICON_OK_TICK, "Insert at tail")))
+        {
+            m_node.InsertTailNode(valueBoxValue);
+        }
+
+        if (GuiButton(Rectangle{ 160, 95, 125, 30 }, GuiIconText(RICON_OK_TICK, "Insert at position")))
+        {
+            m_node.InsertArbitraryNode(valueBoxValue);
+        }
+
+        if (GuiButton(Rectangle{ 295, 25, 125, 30 }, GuiIconText(RICON_CROSS, "Delete from head")))
+        {
+            m_node.DeleteHeadNode(valueBoxValue);
+        }
+
+        if (GuiButton(Rectangle{ 295, 60, 125, 30 }, GuiIconText(RICON_CROSS, "Delete from tail")))
+        {
+            m_node.DeleteTailNode(valueBoxValue);
+        }
+
+        if (GuiButton(Rectangle{ 295, 95, 125, 30 }, GuiIconText(RICON_CROSS, "Delete at position")))
+        {
+            m_node.DeleteArbitraryNode(valueBoxValue);
+        }
+
+        if (GuiButton(Rectangle{ 25, 150, 125, 30 }, GuiIconText(RICON_ARROW_RIGHT_FILL, "Sort List")))
+        {
+            m_node.ListSort(valueBoxValue);
+        }
+
+        if (GuiButton(Rectangle{ 160, 150, 125, 30 }, GuiIconText(RICON_HEART, "Head & tail values")))
+        {
+            m_node.ReturnHeadValue(valueBoxValue);
+            m_node.ReturnTailValue(valueBoxValue);
+        }
+
+        if (GuiButton(Rectangle{ 295, 150, 125, 30 }, GuiIconText(RICON_STAR, "Check node total")))
+        {
+            m_node.NodeFind(valueBoxValue);
+        }
+
+
 
         EndDrawing();
         //----------------------------------------------------------------------------------

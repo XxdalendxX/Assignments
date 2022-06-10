@@ -1,9 +1,10 @@
-#pragma once
+
 
 class Node
 {
 public:
 
+	Node();
 	Node(int value, Node* next, Node* Previous);
 	~Node();
 
@@ -33,7 +34,7 @@ protected:
 public:
 
 	int value;
-	
+
 	Node* next;
 	Node* previous;
 
