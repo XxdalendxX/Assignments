@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    int screenWidth = 2900;
+    int screenWidth = 1900;
     int screenHeight = 950;
 
     InitWindow(screenWidth, screenHeight, "Have you ever looked at someone and wondered... \"What is going on inside their head?\"");
