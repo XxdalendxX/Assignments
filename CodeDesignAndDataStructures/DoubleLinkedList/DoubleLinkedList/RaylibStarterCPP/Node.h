@@ -28,14 +28,20 @@ public:
 
 protected:
 
-	Node* head;
-	Node* tail;
+	
 
 public:
 
+	Node* head;
+	Node* tail;
+	
 	int _value;
 
 	Node* next;
 	Node* previous;
+
+	int tailVal;
+	int headVal;
+	int nodeTot;
 
 };

@@ -7,9 +7,11 @@ Node::Node()
 	tail = new Node(0, nullptr, head);
 	head->next = tail;
 }
-Node::Node(int value, Node* next, Node* Previous)
+Node::Node(int Value, Node* Next, Node* Previous)
 {
-	_value = value;
+	_value = Value;
+	next = Next;
+	previous = Previous;
 }
 Node::~Node()
 {
@@ -20,22 +22,26 @@ Node::~Node()
 ////////////////////////////////////////////////////////////////////////////////////////////
 void Node::InsertHeadNode(int value)
 {
-	Node* newNode = new Node(value, head, head->next);
+	Node* newNode = new Node(value, head->next, head);
 	head->next->previous = newNode;
 	head->next = newNode;
 }
 
 void Node::InsertTailNode(int value)
 {
-	Node* newNode = new Node(value, tail->previous, tail);
+	Node* newNode = new Node(value, tail, tail->previous);
 	tail->previous->next = newNode;
 	tail->previous = newNode;
 }
 
 void Node::DeleteHeadNode()
 {
-	Node* node = tail->next;
-	node->next->previous = head;
+	Node* node = head->next;
+	if (node->next == nullptr)
+	{
+		return;
+	}
+	node->next->previous = node->previous;
 	node->previous->next = node->next;
 	delete node;
 }
@@ -43,8 +49,12 @@ void Node::DeleteHeadNode()
 void Node::DeleteTailNode()
 {
 	Node* node = tail->previous;
+	if (node->previous == nullptr)
+	{
+		return;
+	}
 	node->next->previous = node->previous;
-	node->previous->next = tail;
+	node->previous->next = node->next;
 	delete node;
 }
 
@@ -56,7 +66,7 @@ void Node::InsertArbitraryNode(int position, int value)
 	}
 	Node* insertPos = NodeFind(position);
 
-	Node* newNode = new Node(value, insertPos, insertPos->next);
+	Node* newNode = new Node(value, insertPos->next, insertPos);
 	insertPos->next = newNode;
 }
 
@@ -66,10 +76,14 @@ void Node::DeleteArbitraryNode(int position)
 	{
 		return;
 	}
-	Node* nodePos = NodeFind(position);
+	Node* nodePos = NodeFind(position + 1);
+	if (nodePos->previous == nullptr || nodePos->next == nullptr)
+	{
+		return;
+	}
 
 	nodePos->next->previous = nodePos->previous;
-	nodePos->previous->next = tail;
+	nodePos->previous->next = nodePos->next;
 	delete nodePos;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,13 +93,13 @@ int Node::NodeCount()
 {
 	int count = 0;
 	Node* currentNode = head;
-	while (currentNode != tail)
+	while (currentNode->next->next != nullptr)
 	{
-		if (currentNode->next != tail)
+		if (currentNode->next != nullptr)
 		{
 			count++;
 		}
-		currentNode->next = currentNode;
+		currentNode = currentNode->next;
 	}
 
 	return count;
@@ -98,7 +112,7 @@ Node* Node::NodeFind(int position)
 	while (count != position)
 	{
 		count++;
-		currentNode->next = currentNode;
+		currentNode = currentNode->next;
 	}
 
 	return currentNode;
@@ -131,10 +145,10 @@ void Node::ListSort()
 {
 	Node* currentNode = head->next;
 	bool swapped = true;
-	while (swapped = true)
+	while (swapped == true)
 	{
 		bool swap = false;
-		while (currentNode != tail)
+		while (currentNode->next->next != nullptr)
 		{
 			if (currentNode->_value > currentNode->next->_value)
 			{
