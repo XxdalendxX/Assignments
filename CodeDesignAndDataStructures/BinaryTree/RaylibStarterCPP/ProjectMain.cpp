@@ -25,6 +25,8 @@
 #define RAYGUI_SUPPORT_ICONS
 #include "raygui.h"
 
+#include "TreeNode.h"
+
 int main(int argc, char* argv[])
 {
     // Initialization
