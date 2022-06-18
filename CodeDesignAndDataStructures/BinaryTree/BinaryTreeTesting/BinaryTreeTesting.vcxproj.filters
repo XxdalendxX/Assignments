@@ -21,5 +21,8 @@
     <ClCompile Include="..\RaylibStarterCPP\BinaryTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\RaylibStarterCPP\TreeNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
