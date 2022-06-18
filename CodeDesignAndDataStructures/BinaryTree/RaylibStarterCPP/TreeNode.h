@@ -7,12 +7,12 @@ public:
 	TreeNode(int value);
 	~TreeNode();
 
-	bool CheckLeft();
-	bool CheckRight();
+	bool CheckLeft(TreeNode* node);
+	bool CheckRight(TreeNode* node);
 
-	int GetValue();
-	TreeNode* GetLeft();
-	TreeNode* GetRight();
+	int GetValue(TreeNode* node);
+	TreeNode* GetLeft(TreeNode* node);
+	TreeNode* GetRight(TreeNode* node);
 
 	void SetValue(int value);
 	void SetLeft(TreeNode* node);
