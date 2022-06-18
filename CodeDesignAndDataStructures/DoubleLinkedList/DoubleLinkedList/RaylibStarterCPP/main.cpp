@@ -63,11 +63,13 @@ int main(int argc, char* argv[])
 
         GuiSetStyle(TEXTBOX, TEXT_ALIGNMENT, GUI_TEXT_ALIGN_CENTER);
 
+        //allows user to imput a value that is used for the functions that require a value or position
         DrawText("Value", 25, 20, 24, BLACK);
         if (GuiValueBox(Rectangle{ 25, 40, 125, 30 }, NULL, &valueBoxValue, 0, 9999, valueBoxEditMode)) valueBoxEditMode = !valueBoxEditMode;
         DrawText("Position", 25, 80, 24, BLACK);
         if (GuiValueBox(Rectangle{ 25, 100, 125, 30 }, NULL, &positionBoxValue, 0, 9999, positionBoxEditMode)) positionBoxEditMode = !positionBoxEditMode;
 
+        //runs corresponding function for each button
         if (GuiButton(Rectangle{ 160, 25, 125, 30 }, GuiIconText(RICON_OK_TICK, "Insert at head")))
         {
             m_node.InsertHeadNode(valueBoxValue);
@@ -114,6 +116,7 @@ int main(int argc, char* argv[])
             m_node.nodeTot = m_node.NodeCount();
         }
 
+        //Displays nodes in list order from head to tail every frame and depending on number displays in a different colour
         Node* currentNode = m_node.head->next;
         int count = 0;
         while (currentNode->next != nullptr)
@@ -211,7 +214,7 @@ int main(int argc, char* argv[])
             }
         }
         
-        
+        //displays set values for the tailVal, headVal and nodeTot updated by corresponding functions
         DrawText("Head value: ", 25, 200, 24, BLACK);
         DrawText(std::to_string(m_node.headVal).c_str(), 200, 200, 24, BLACK);
 
