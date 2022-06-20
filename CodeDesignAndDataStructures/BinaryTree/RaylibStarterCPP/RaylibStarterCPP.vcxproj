@@ -168,13 +168,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Source.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Header.h" />
-=======
     <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="ProjectMain.cpp" />
     <ClCompile Include="TreeNode.cpp" />
@@ -182,7 +175,6 @@
   <ItemGroup>
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="TreeNode.h" />
->>>>>>> origin/main
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
