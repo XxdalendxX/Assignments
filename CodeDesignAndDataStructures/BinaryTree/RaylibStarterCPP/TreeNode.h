@@ -10,9 +10,9 @@ public:
 	bool CheckLeft(TreeNode* node);
 	bool CheckRight(TreeNode* node);
 
-	int GetValue(TreeNode* node);
-	TreeNode* GetLeft(TreeNode* node);
-	TreeNode* GetRight(TreeNode* node);
+	int GetValue();
+	TreeNode* GetLeft();
+	TreeNode* GetRight();
 
 	void SetValue(int value);
 	void SetLeft(TreeNode* node);

@@ -1,4 +1,7 @@
 #include "BinaryTree.h"
+#include "pch.h"
+
+
 
 
 BinaryTree::BinaryTree()
