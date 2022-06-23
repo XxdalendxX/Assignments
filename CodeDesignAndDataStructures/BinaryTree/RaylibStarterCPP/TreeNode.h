@@ -7,8 +7,8 @@ public:
 	TreeNode(int value);
 	~TreeNode();
 
-	bool CheckLeft(TreeNode* node);
-	bool CheckRight(TreeNode* node);
+	bool CheckLeft();
+	bool CheckRight();
 
 	int GetValue();
 	TreeNode* GetLeft();

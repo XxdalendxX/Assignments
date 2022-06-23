@@ -1,5 +1,6 @@
-#include "TreeNode.h"
 #include "pch.h"
+#include "TreeNode.h"
+
 
 TreeNode::TreeNode(int value)
 {
@@ -16,14 +17,14 @@ TreeNode::~TreeNode()
 //Checks left and right nodes to see if they have been filled 
 /////////////////////////////////////////////////////////////
 
-bool TreeNode::CheckLeft(TreeNode* node)
+bool TreeNode::CheckLeft()
 {
-	return (node->left != nullptr);
+	return (left != nullptr);
 }
 
-bool TreeNode::CheckRight(TreeNode* node)
+bool TreeNode::CheckRight()
 {
-	return (node->right != nullptr);
+	return (right != nullptr);
 }
 
 /////////////////////////////////////////////////////////////
