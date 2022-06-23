@@ -68,5 +68,35 @@ namespace Unittests
 			node.SetRight(rightNode);
 			Assert::IsTrue(rightNode == node.GetRight());
 		}
+
+		TEST_METHOD(TreeIsEmpty)
+		{
+			BinaryTree tree;
+			Assert::IsTrue(true == tree.IsEmpty());
+		}
+
+		TEST_METHOD(TreeIsNotEmpty)
+		{
+			BinaryTree tree;
+			TreeNode* node = new TreeNode(10);
+			tree.m_root = node;
+			Assert::IsTrue(false == tree.IsEmpty());
+		}
+
+		TEST_METHOD(TreeAddNodeToRoot)
+		{
+			BinaryTree tree;
+			tree.Add(10);
+			Assert::AreEqual(10, tree.m_root->m_value);
+		}
+
+		TEST_METHOD(TreeAddNodeNotToRoot)
+		{
+			BinaryTree tree;
+			tree.Add(10);
+			TreeNode* node = tree.m_root;
+			tree.Add(81);
+			Assert::AreEqual(81, node->right->m_value);
+		}
 	};
 }

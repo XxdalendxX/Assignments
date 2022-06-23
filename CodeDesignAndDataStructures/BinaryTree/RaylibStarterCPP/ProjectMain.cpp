@@ -26,6 +26,7 @@
 #include "raygui.h"
 
 #include "TreeNode.h"
+#include "BinaryTree.h"
 
 int main(int argc, char* argv[])
 {
@@ -41,6 +42,7 @@ int main(int argc, char* argv[])
 
     int valueBoxValue = 0;
     bool valueBoxEditMode = false;
+    BinaryTree tree;
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
