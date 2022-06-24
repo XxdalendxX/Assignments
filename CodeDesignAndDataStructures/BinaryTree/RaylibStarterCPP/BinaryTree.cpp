@@ -1,5 +1,6 @@
 #include "BinaryTree.h"
 #include "TreeNode.h"
+#include "raylib.h"
 
 
 BinaryTree::BinaryTree()
@@ -38,12 +39,12 @@ void BinaryTree::Add(int value)
 			{
 				if (currentNode->left == nullptr)
 				{
-					currentNode = node;
+					currentNode->left = node;
 					placed = true;
 				}
 				else
 				{
-					currentNode->left = currentNode->left;
+					currentNode = currentNode->left;
 				}
 			}
 			else
@@ -72,6 +73,11 @@ TreeNode* BinaryTree::Find(int value)
 	return m_root;
 }
 
+void BinaryTree::Draw(TreeNode* selected)
+{
+	Draw(m_root, 900, 40, 400, selected);
+}
+
 //////////////////////////////////////////////////////////
 //Private functions exclusive to this .cpp file
 //////////////////////////////////////////////////////////
@@ -79,4 +85,29 @@ TreeNode* BinaryTree::Find(int value)
 bool BinaryTree::FindNode()
 {
 	return false;
+}
+
+void BinaryTree::Draw(TreeNode* pNode, int x, int y, int horizontalSpacing, TreeNode* selected)
+{
+
+	horizontalSpacing /= 2;
+
+	if (pNode)
+	{
+		if (pNode->CheckLeft())
+		{
+			DrawLine(x, y, x - horizontalSpacing, y + 80, RED);
+
+			Draw(pNode->GetLeft(), x - horizontalSpacing, y + 80, horizontalSpacing, selected);
+		}
+
+		if (pNode->CheckRight())
+		{
+			DrawLine(x, y, x + horizontalSpacing, y + 80, RED);
+
+			Draw(pNode->GetRight(), x + horizontalSpacing, y + 80, horizontalSpacing, selected);
+		}
+
+		pNode->Draw(x, y, (selected == pNode));
+	}
 }

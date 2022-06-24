@@ -90,13 +90,22 @@ namespace Unittests
 			Assert::AreEqual(10, tree.m_root->m_value);
 		}
 
-		TEST_METHOD(TreeAddNodeNotToRoot)
+		TEST_METHOD(TreeAddNodeRightOfRoot)
 		{
 			BinaryTree tree;
 			tree.Add(10);
 			TreeNode* node = tree.m_root;
 			tree.Add(81);
 			Assert::AreEqual(81, node->right->m_value);
+		}
+
+		TEST_METHOD(TreeAddNodeLeftOfRoot)
+		{
+			BinaryTree tree;
+			tree.Add(81);
+			TreeNode* node = tree.m_root;
+			tree.Add(10);
+			Assert::AreEqual(10, node->left->m_value);
 		}
 	};
 }

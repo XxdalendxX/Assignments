@@ -18,6 +18,8 @@ public:
 	void SetLeft(TreeNode* node);
 	void SetRight(TreeNode* node);
 
+	void Draw(int x, int y, bool selected = false);
+
 public:
 	int m_value;
 

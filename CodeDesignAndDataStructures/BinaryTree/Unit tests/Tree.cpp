@@ -41,7 +41,7 @@ void BinaryTree::Add(int value)
 			{
 				if (currentNode->left == nullptr)
 				{
-					currentNode = node;
+					currentNode->left = node;
 					placed = true;
 				}
 				else
