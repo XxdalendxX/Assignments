@@ -24,5 +24,4 @@ private:
 public:
 
 	TreeNode* m_root;
-	TreeNode* foundNode;
 };

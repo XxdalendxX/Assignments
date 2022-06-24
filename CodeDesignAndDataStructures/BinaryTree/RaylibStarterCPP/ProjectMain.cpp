@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
 
         if (GuiButton(Rectangle{ 160, 55, 125, 30 }, GuiIconText(RICON_CROSS, "Remove value node")))
         {
-
+            tree.Remove(valueBoxValue);
         }
 
         tree.Draw(selectedNode);
