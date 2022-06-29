@@ -107,5 +107,79 @@ namespace Unittests
 			tree.Add(10);
 			Assert::AreEqual(10, node->left->m_value);
 		}
+
+		TEST_METHOD(TreeFindNode)
+		{
+			BinaryTree tree;
+			tree.Add(81);
+			tree.Add(10);
+			tree.Add(20);
+			tree.Add(69);
+			tree.Add(420);
+			tree.Add(70);
+			tree.Add(18);
+			tree.Add(4);
+			tree.Add(32);
+			tree.Add(99);
+			TreeNode* node = nullptr;
+			node = tree.Find(32);
+			Assert::IsNotNull(node);
+			int nodeval = node->m_value;
+			Assert::AreEqual(32, node->m_value);
+		}
+
+		TEST_METHOD(TreeRemoveNoBranch)
+		{
+			BinaryTree tree;
+			tree.Add(81);
+			tree.Add(10);
+			tree.Add(20);
+			tree.Add(69);
+			tree.Add(420);
+			tree.Add(70);
+			tree.Add(18);
+			tree.Add(4);
+			tree.Add(32);
+			tree.Add(99);
+			tree.Add(101);
+			tree.Remove(420);
+			Assert::IsNull(tree.Find(32));
+		}
+
+		TEST_METHOD(TreeRemove1Branch)
+		{
+			BinaryTree tree;
+			tree.Add(81);
+			tree.Add(10);
+			tree.Add(20);
+			tree.Add(69);
+			tree.Add(420);
+			tree.Add(70);
+			tree.Add(18);
+			tree.Add(4);
+			tree.Add(32);
+			tree.Add(99);
+			tree.Add(90);
+			tree.Remove(99);
+			Assert::IsNull(tree.Find(99));
+		}
+
+		TEST_METHOD(TreeRemove2Branch)
+		{
+			BinaryTree tree;
+			tree.Add(81);
+			tree.Add(10);
+			tree.Add(20);
+			tree.Add(69);
+			tree.Add(420);
+			tree.Add(70);
+			tree.Add(18);
+			tree.Add(4);
+			tree.Add(32);
+			tree.Add(99);
+			tree.Add(101);
+			tree.Remove(10);
+			Assert::IsNull(tree.Find(10));
+		}
 	};
 }

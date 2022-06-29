@@ -65,12 +65,58 @@ void BinaryTree::Add(int value)
 
 void BinaryTree::Remove(int value)
 {
-	FindNode();
+	TreeNode* node = nullptr;
+	TreeNode* parent = nullptr;
+	if (FindNode(value, node, parent) == true)
+	{
+		if (node->CheckRight() == true)
+		{
+			TreeNode* selectNode = node;
+			TreeNode* selectNodeParent = node;
+			selectNode = selectNode->right;
+			while (selectNode->left != nullptr)
+			{
+				selectNodeParent = selectNode;
+				selectNode = selectNode->left;
+			}
+			node->m_value = selectNode->m_value;
+			if (selectNodeParent->left == selectNode)
+			{
+				selectNodeParent->left = selectNode->right;
+			}
+			else
+			{
+				selectNodeParent->right = selectNode->right;
+			}
+			delete selectNode;
+		}
+		else
+		{
+			if (parent != nullptr)
+			{
+				if (parent->left == node)
+				{
+					parent->left = node->left;
+				}
+				else
+				{
+					parent->right = node->left;
+				}
+			}
+			else
+			{
+				m_root = node->left;
+			}
+			delete node;
+		}
+	}
 }
 
 TreeNode* BinaryTree::Find(int value)
 {
-	return m_root;
+	TreeNode* node = nullptr;
+	TreeNode* parent = nullptr;
+	return (FindNode(value, node, parent) ? node: nullptr);
 }
 
 void BinaryTree::Draw(TreeNode* selected)
@@ -82,8 +128,34 @@ void BinaryTree::Draw(TreeNode* selected)
 //Private functions exclusive to this .cpp file
 //////////////////////////////////////////////////////////
 
-bool BinaryTree::FindNode()
+bool BinaryTree::FindNode(int searchVal, TreeNode*& node, TreeNode*& parentNode)
 {
+	parentNode = nullptr;
+	node = m_root;
+	if (IsEmpty() == true)
+	{
+		return false;
+	}
+	else
+	{
+		while (node != nullptr)
+		{
+			if (searchVal < node->m_value)
+			{
+				parentNode = node;
+				node = node->left;
+			}
+			else if (searchVal > node->m_value)
+			{
+				parentNode = node;
+				node = node->right;
+			}
+			else
+			{
+				return true;
+			}
+		}
+	}
 	return false;
 }
 

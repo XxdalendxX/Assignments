@@ -18,7 +18,7 @@ public:
 
 private:
 
-	bool FindNode();
+	bool FindNode(int searchVal, TreeNode*& node, TreeNode*& parentNode);
 	void Draw(TreeNode* pNode, int x, int y, int horizontalSpacing, TreeNode* selected);
 
 public:
