@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "51974cdc-38de-4311-9088-66efc04a9b15": {
+      "ProjectGuid": "51974cdc-38de-4311-9088-66efc04a9b15",
+      "DisplayName": "RaylibStarterCS",
+      "ColorIndex": 0
+    },
+    "93bc4ff5-4a18-468d-a676-f62f770a6937": {
+      "ProjectGuid": "93bc4ff5-4a18-468d-a676-f62f770a6937",
+      "DisplayName": "MathClasses",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

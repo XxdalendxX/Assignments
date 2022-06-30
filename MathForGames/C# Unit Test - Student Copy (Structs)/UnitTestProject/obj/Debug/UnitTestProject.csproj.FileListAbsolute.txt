@@ -1,0 +1,34 @@
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\obj\Debug\UnitTestProject.csproj.AssemblyReference.cache
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\obj\Debug\UnitTestProject.csproj.CoreCompileInputs.cache
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\UnitTestProject.dll
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\UnitTestProject.pdb
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\MathClasses.exe
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\MathClasses.pdb
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\MathClasses.exe.config
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\obj\Debug\UnitTestProject.csproj.CopyComplete
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\obj\Debug\UnitTestProject.dll
+C:\Users\s214266\Desktop\C# Unit Test - Student Copy (Structs)\UnitTestProject\obj\Debug\UnitTestProject.pdb
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\UnitTestProject.dll
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\UnitTestProject.pdb
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\MathClasses.exe
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\MathClasses.pdb
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\MathClasses.exe.config
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\obj\Debug\UnitTestProject.csproj.AssemblyReference.cache
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\obj\Debug\UnitTestProject.csproj.CoreCompileInputs.cache
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\obj\Debug\UnitTestProject.csproj.CopyComplete
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\obj\Debug\UnitTestProject.dll
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\UnitTestProject\obj\Debug\UnitTestProject.pdb

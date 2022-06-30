@@ -1,0 +1,45 @@
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.exe
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.deps.json
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.runtimeconfig.json
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.runtimeconfig.dev.json
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.dll
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.pdb
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\Raylib-cs.dll
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libraylib.so
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libraylib.so
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libraylib.dylib
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\raylib.dll
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\raylib.dll
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.csproj.AssemblyReference.cache
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.AssemblyInfoInputs.cache
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.AssemblyInfo.cs
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.csproj.CoreCompileInputs.cache
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.csproj.CopyComplete
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.dll
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.pdb
+C:\Users\s214266\Desktop\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.genruntimeconfig.cache
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.exe
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.deps.json
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.runtimeconfig.json
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.runtimeconfig.dev.json
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.dll
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\RaylibStarterCS.pdb
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\Raylib-cs.dll
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libraylib.so
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libraylib.so
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libraylib.dylib
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\raylib.dll
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\raylib.dll
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\MathClasses.exe
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\MathClasses.pdb
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\bin\Debug\netcoreapp3.1\MathClasses.exe.config
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.csproj.AssemblyReference.cache
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.AssemblyInfoInputs.cache
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.AssemblyInfo.cs
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.csproj.CoreCompileInputs.cache
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.csproj.CopyComplete
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.dll
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.pdb
+C:\Users\s214266\Desktop\Math For Games Task\RaylibStarterCS\RaylibStarterCS\obj\Debug\netcoreapp3.1\RaylibStarterCS.genruntimeconfig.cache

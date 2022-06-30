@@ -1,0 +1,8 @@
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\MathClasses\bin\Release\MathClasses.exe.config
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\MathClasses\bin\Release\MathClasses.exe
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\MathClasses\bin\Release\MathClasses.pdb
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\MathClasses\obj\Release\MathClasses.csproj.AssemblyReference.cache
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\MathClasses\obj\Release\MathClasses.csproj.SuggestedBindingRedirects.cache
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\MathClasses\obj\Release\MathClasses.csproj.CoreCompileInputs.cache
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\MathClasses\obj\Release\MathClasses.exe
+C:\Users\s214266\Desktop\Math For Games Task\C# Unit Test - Student Copy (Structs)\MathClasses\obj\Release\MathClasses.pdb
