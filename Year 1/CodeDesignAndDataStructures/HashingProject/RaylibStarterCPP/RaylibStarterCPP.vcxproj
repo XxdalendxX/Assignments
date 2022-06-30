@@ -169,11 +169,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Hashing.cpp" />
+    <ClCompile Include="HashTable.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hashing.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="HashTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

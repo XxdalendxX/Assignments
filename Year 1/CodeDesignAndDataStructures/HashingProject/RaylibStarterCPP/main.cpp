@@ -25,12 +25,30 @@
 #define RAYGUI_SUPPORT_ICONS
 #include "raygui.h"
 
+#include "HashTable.h"
+#include <string>
+
 int main(int argc, char* argv[])
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    int screenWidth = 800;
-    int screenHeight = 450;
+    int screenWidth = 1800;
+    int screenHeight = 900;
+
+    int currentRecordIdx = 0;
+
+    HashTable hashTable(9);
+    std::string texturePath[9]{
+        "res/ConceptArt.png",
+        "res/heheheha.png",
+        "res/knucles.png",
+        "res/pain.png",
+        "res/perfection.png",
+        "res/resident_dad.png",
+        "res/somp.png",
+        "res/sus.png",
+        "res/true_perfection.png"
+    };
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
@@ -42,7 +60,25 @@ int main(int argc, char* argv[])
     {
         // Update
         //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
+         //adjusts record index by index of -1
+        if (IsKeyPressed(KEY_LEFT))
+        {
+            currentRecordIdx--;
+            if (currentRecordIdx < 0)
+            {
+                currentRecordIdx = 8;
+            }
+        }
+
+        //adjusts record index by index of +1
+        if (IsKeyPressed(KEY_RIGHT))
+        {
+            currentRecordIdx++;
+            if (currentRecordIdx >= 9)
+            {
+                currentRecordIdx = 0;
+            }
+        }
         //----------------------------------------------------------------------------------
 
         // Draw
@@ -51,7 +87,7 @@ int main(int argc, char* argv[])
 
         ClearBackground(RAYWHITE);
 
-        DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+        DrawTexture(hashTable.Load(texturePath[currentRecordIdx]), 500, 100, RAYWHITE);
 
         EndDrawing();
         //----------------------------------------------------------------------------------
