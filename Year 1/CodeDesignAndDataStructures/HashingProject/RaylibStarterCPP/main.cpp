@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
         "res/true_perfection.png"
     };
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    InitWindow(screenWidth, screenHeight, "gregory, do you see the small vent on the floor? have you ever heard of the hit game among us, gregory? you need to vent. i know it will be hard for you to be sus but i know you can do it gregory.");
 
     SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
