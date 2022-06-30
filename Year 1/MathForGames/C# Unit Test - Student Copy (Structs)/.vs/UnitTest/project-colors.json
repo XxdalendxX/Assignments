@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "93bc4ff5-4a18-468d-a676-f62f770a6937": {
+      "ProjectGuid": "93bc4ff5-4a18-468d-a676-f62f770a6937",
+      "DisplayName": "MathClasses",
+      "ColorIndex": 0
+    },
+    "2731be78-c467-4e92-9381-4f6b9ea68963": {
+      "ProjectGuid": "2731be78-c467-4e92-9381-4f6b9ea68963",
+      "DisplayName": "UnitTestProject",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

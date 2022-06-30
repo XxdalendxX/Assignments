@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "65b7a420-829b-46e8-a5c1-e69ac393414a": {
+      "ProjectGuid": "65b7a420-829b-46e8-a5c1-e69ac393414a",
+      "DisplayName": "DoubleLinkedList",
+      "ColorIndex": 0
+    },
+    "66f97e22-5e02-4257-b75c-da71b7a17bff": {
+      "ProjectGuid": "66f97e22-5e02-4257-b75c-da71b7a17bff",
+      "DisplayName": "RaylibStarterCPP",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

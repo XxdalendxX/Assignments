@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\s214266\Documents\Assignments\CodeDesignAndDataStructures\AIEYear1Samples-master\CDDS_Optimise\</FILEPATH>
+      <FILENAME>Critter.cpp</FILENAME>
+      <LINE>4</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Critter::m_texture' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Critter::{ctor}</FUNCTION>
+    <DECORATED>??0Critter@@QAE@XZ</DECORATED>
+    <FUNCLINE>4</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Critter::m_texture</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\s214266\Documents\Assignments\CodeDesignAndDataStructures\AIEYear1Samples-master\CDDS_Optimise\</FILEPATH>
+      <FILENAME>Critter.cpp</FILENAME>
+      <LINE>4</LINE>
+      <COLUMN>9</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Critter::m_isDirty' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Critter::{ctor}</FUNCTION>
+    <DECORATED>??0Critter@@QAE@XZ</DECORATED>
+    <FUNCLINE>4</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Critter::m_isDirty</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
