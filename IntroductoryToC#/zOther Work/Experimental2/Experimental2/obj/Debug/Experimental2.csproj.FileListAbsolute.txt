@@ -1,0 +1,8 @@
+C:\Users\s214266\source\repos\Experimental2\Experimental2\obj\Debug\Experimental2.csproj.AssemblyReference.cache
+C:\Users\s214266\source\repos\Experimental2\Experimental2\obj\Debug\Experimental2.csproj.SuggestedBindingRedirects.cache
+C:\Users\s214266\source\repos\Experimental2\Experimental2\obj\Debug\Experimental2.csproj.CoreCompileInputs.cache
+C:\Users\s214266\source\repos\Experimental2\Experimental2\bin\Debug\Experimental2.exe.config
+C:\Users\s214266\source\repos\Experimental2\Experimental2\bin\Debug\Experimental2.exe
+C:\Users\s214266\source\repos\Experimental2\Experimental2\bin\Debug\Experimental2.pdb
+C:\Users\s214266\source\repos\Experimental2\Experimental2\obj\Debug\Experimental2.exe
+C:\Users\s214266\source\repos\Experimental2\Experimental2\obj\Debug\Experimental2.pdb
