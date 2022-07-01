@@ -39,14 +39,14 @@ int main(int argc, char* argv[])
 
     HashTable hashTable(9);
     std::string texturePath[9]{
-        "res/ConceptArt.png",
+        "res/Game_Idea.png",
+        "res/TED_Talk.png",
         "res/heheheha.png",
-        "res/knucles.png",
-        "res/pain.png",
-        "res/perfection.png",
+        "res/jerma.png",
+        "res/sus.png",
+        "res/Senator.png",
         "res/resident_dad.png",
         "res/somp.png",
-        "res/sus.png",
         "res/true_perfection.png"
     };
 
