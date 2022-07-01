@@ -8,7 +8,12 @@
 
 
 EntityEditorApp::EntityEditorApp(int screenWidth, int screenHeight) : m_screenWidth(screenWidth), m_screenHeight(screenHeight) {
-
+	h = CreateFileMapping(
+		INVALID_HANDLE_VALUE,
+		nullptr,
+		PAGE_READWRITE,
+		0, ENTITY_COUNT * sizeof(Entity) + sizeof(int),
+		L"SharedMemory");
 }
 
 EntityEditorApp::~EntityEditorApp() {
@@ -31,13 +36,23 @@ bool EntityEditorApp::Startup() {
 		entity.g = rand() % 255;
 		entity.b = rand() % 255;
 	}
-	
+
+	int* total = (int*)MapViewOfFile(h, FILE_MAP_ALL_ACCESS, 0, 0, ENTITY_COUNT * sizeof(Entity) + sizeof(int));
+	*total = ENTITY_COUNT;
+	Entity* entities =  (Entity*) &total[1];
+	for (int i = 0; i < ENTITY_COUNT; i++)
+	{
+		entities[i] = m_entities[i];
+	}
+	UnmapViewOfFile(total);
+
 	return true;
 }
 
 void EntityEditorApp::Shutdown() {
 
 	CloseWindow();        // Close window and OpenGL context
+	CloseHandle(h);
 }
 
 void EntityEditorApp::Update(float deltaTime) {
@@ -101,6 +116,14 @@ void EntityEditorApp::Update(float deltaTime) {
 		if (m_entities[i].y < 0)
 			m_entities[i].y += m_screenHeight;
 	}
+
+	int* total = (int*)MapViewOfFile(h, FILE_MAP_ALL_ACCESS, 0, 0, ENTITY_COUNT * sizeof(Entity) + sizeof(int));
+	Entity* entities = (Entity*)&total[1];
+	for (int i = 0; i < ENTITY_COUNT; i++)
+	{
+		entities[i] = m_entities[i];
+	}
+	UnmapViewOfFile(total);
 }
 
 void EntityEditorApp::Draw() {
