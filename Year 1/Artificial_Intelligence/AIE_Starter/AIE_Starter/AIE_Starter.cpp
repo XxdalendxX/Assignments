@@ -33,10 +33,10 @@ int main(int argc, char* argv[])
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    int screenWidth = 800;
-    int screenHeight = 450;
+    int screenWidth = 1080;
+    int screenHeight = 720;
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    InitWindow(screenWidth, screenHeight, "Gustavo Fring, Jesse Pinkman and Walter White walk into a bar...");
 
     SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
@@ -44,30 +44,44 @@ int main(int argc, char* argv[])
 
 
     std::vector<std::string> asciiMap;
-    asciiMap.push_back("000000000000");
-    asciiMap.push_back("010111011100");
-    asciiMap.push_back("010101110110");
-    asciiMap.push_back("010100000000");
-    asciiMap.push_back("010111111110");
-    asciiMap.push_back("010000001000");
+    asciiMap.push_back("100000000001");
+    asciiMap.push_back("111111111111");
+    asciiMap.push_back("000010010000");
+    asciiMap.push_back("011110011110");
+    asciiMap.push_back("010011110010");
+    asciiMap.push_back("010010010010");
     asciiMap.push_back("011111111110");
     asciiMap.push_back("000000000000");
+
+    NodeMap map;
+    map.Initialise(asciiMap, 90);
+
+    Node* start = map.GetNode(1, 1);
+    Node* end = map.GetNode(10, 1);
+    std::vector<Node*> nodeMapPath = DijkstrasSearch(start, end);
+    Color lineColour = { 255, 255, 255, 255 };
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
         // Update
         //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
+         if (IsMouseButtonPressed(0))
+         {
+            Vector2 mousePos = GetMousePosition();
+            start = map.GetClosestNode(glm::vec2(mousePos.x, mousePos.y));
+            nodeMapPath = DijkstrasSearch(start, end);
+         }
         //----------------------------------------------------------------------------------
 
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        ClearBackground(BLACK);
 
-        void NodeMap::Draw();
+        map.Draw();
+        map.DrawPath(nodeMapPath, lineColour);
 
         EndDrawing();
         //----------------------------------------------------------------------------------
