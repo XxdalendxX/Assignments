@@ -56,21 +56,32 @@ int main(int argc, char* argv[])
     NodeMap map;
     map.Initialise(asciiMap, 90);
 
-    Node* start = map.GetNode(1, 1);
-    Node* end = map.GetNode(10, 1);
+    Node* start = map.GetNode(0, 0);
+    Node* end = map.GetNode(11, 0);
     std::vector<Node*> nodeMapPath = DijkstrasSearch(start, end);
     Color lineColour = { 255, 255, 255, 255 };
+
+    PathAgent agent;
+    agent.SetNode(start);
+    agent.SetSpeed(64);
+
+    float time = (float)GetTime();
+    float deltaTime;
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
+        float fTime = (float)GetTime();
+        deltaTime = fTime - time;
+        time = fTime;
+        
         // Update
         //----------------------------------------------------------------------------------
          if (IsMouseButtonPressed(0))
          {
             Vector2 mousePos = GetMousePosition();
-            start = map.GetClosestNode(glm::vec2(mousePos.x, mousePos.y));
-            nodeMapPath = DijkstrasSearch(start, end);
+            end = map.GetClosestNode(glm::vec2(mousePos.x, mousePos.y));
+            agent.GoToNode(end);
          }
         //----------------------------------------------------------------------------------
 
@@ -81,7 +92,10 @@ int main(int argc, char* argv[])
         ClearBackground(BLACK);
 
         map.Draw();
-        map.DrawPath(nodeMapPath, lineColour);
+        map.DrawPath(agent.m_path, lineColour);
+
+        agent.Update(deltaTime);
+        agent.Draw();
 
         EndDrawing();
         //----------------------------------------------------------------------------------

@@ -158,6 +158,68 @@ namespace AIForGames
     }
 
     ////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////Path Agent class/////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////
+
+    void PathAgent::Update(float deltaTime)
+    {
+        if (m_path.empty())
+        {
+            return;
+        }
+
+        float distance = glm::distance(m_path[m_currentIndex]->position, m_position);
+        glm::vec2 unitVector = m_path[m_currentIndex]->position - m_position;
+        unitVector = glm::normalize(unitVector);
+
+        distance = distance - m_speed * deltaTime;
+        if (distance > 0)
+        {
+            m_position += m_speed * deltaTime * unitVector;
+            m_currentNode = m_path[m_currentIndex];
+        }
+        else
+        {
+            m_currentIndex++;
+            if (m_currentIndex == m_path.size())
+            {
+                m_position = m_path.back()->position;
+                m_path.clear();
+            }
+            else
+            {
+                distance = -(distance - (m_speed * deltaTime));
+                m_position = m_path[m_currentIndex-1]->position;
+                unitVector = m_path[m_currentIndex]->position - m_position;
+                unitVector = glm::normalize(unitVector);
+                m_position += distance * unitVector;
+            }
+        }
+    }
+    
+    void PathAgent::GoToNode(Node* node)
+    {
+        m_path = DijkstrasSearch(m_currentNode, node);
+        m_currentIndex = 0;
+    }
+
+    void PathAgent::Draw()
+    {
+        DrawCircle((int)m_position.x, (int)m_position.y, 8, { 255,255,0,255 });
+    }
+
+    void PathAgent::SetNode(Node* node)
+    {
+        m_currentNode = node;
+        m_position = (node->position);
+    }
+
+    void PathAgent::SetSpeed(float speed)
+    {
+        m_speed = speed;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////Other///////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////
 
@@ -235,6 +297,7 @@ namespace AIForGames
             path.push_back(currentNode);
             currentNode = currentNode->previous;
         }
+        std::reverse(path.begin(), path.end());
         return path;
     }
 
