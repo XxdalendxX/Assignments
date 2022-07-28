@@ -205,7 +205,7 @@ namespace AIForGames
 
     void PathAgent::Draw()
     {
-        DrawCircle((int)m_position.x, (int)m_position.y, 8, { 255,255,0,255 });
+        DrawCircle((int)m_position.x, (int)m_position.y, 16, { 255,255,0,255 });
     }
 
     void PathAgent::SetNode(Node* node)
@@ -248,7 +248,7 @@ namespace AIForGames
         while (openList.empty() == false)
         {
             std::sort(openList.begin(), openList.end(), [](Node* a, Node* b) {
-                return a->gScore < b->gScore;
+                return a->fScore < b->fScore;
                 });
 
             Node* currentNode = openList.front();
@@ -307,7 +307,7 @@ namespace AIForGames
 
     float Heuristic(Node* target, Node* destination)
     {
-        float distance = (float)sqrt((float)pow(destination->position.x - target->position.x, 2) / (float)pow(destination->position.y - target->position.y, 2));
+        float distance = ((target->position.x - destination->position.x) + (target->position.y - destination->position.y));
         return distance;
     }
 

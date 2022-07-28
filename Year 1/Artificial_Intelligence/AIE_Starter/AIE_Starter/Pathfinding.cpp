@@ -205,7 +205,7 @@ namespace AIForGames
 
     void PathAgent::Draw()
     {
-        DrawCircle((int)m_position.x, (int)m_position.y, 8, { 255,255,0,255 });
+        DrawCircle((int)m_position.x, (int)m_position.y, 16, { 255,255,0,255 });
     }
 
     void PathAgent::SetNode(Node* node)

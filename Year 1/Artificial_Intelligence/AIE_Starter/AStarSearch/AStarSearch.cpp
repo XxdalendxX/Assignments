@@ -63,7 +63,7 @@ int main(int argc, char* argv[])
 
     PathAgent agent;
     agent.SetNode(start);
-    agent.SetSpeed(64);
+    agent.SetSpeed(192);
 
     float time = (float)GetTime();
     float deltaTime;

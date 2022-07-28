@@ -15,7 +15,12 @@
       "ProjectGuid": "2ca2fbc4-9091-483c-a66d-11caccb207bd",
       "DisplayName": "AStarSearch",
       "ColorIndex": 1
+    },
+    "64f19b32-9dbd-450e-bca7-cab5697519a5": {
+      "ProjectGuid": "64f19b32-9dbd-450e-bca7-cab5697519a5",
+      "DisplayName": "AStarSearch",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }
