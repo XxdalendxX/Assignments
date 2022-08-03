@@ -25,6 +25,8 @@
 #define RAYGUI_SUPPORT_ICONS
 #include "raygui.h"
 #include "Pathfind.h"
+#include "Cat.h"
+#include "Mouse.h"
 #include <string>
 
 using namespace AIForGames;
