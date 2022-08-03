@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     int screenWidth = 1080;
     int screenHeight = 720;
 
-    InitWindow(screenWidth, screenHeight, "The first brings and aftermath, the second a bloodbath, and the third an aftermath...");
+    InitWindow(screenWidth, screenHeight, "Heheheha");
 
     SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
@@ -77,11 +77,33 @@ int main(int argc, char* argv[])
         
         // Update
         //----------------------------------------------------------------------------------
-         if (IsMouseButtonPressed(0))
+         if (IsKeyPressed(KEY_LEFT))
          {
-            Vector2 mousePos = GetMousePosition();
-            end = map.GetClosestNode(glm::vec2(mousePos.x, mousePos.y));
+            Node* node = agent.GetNode();
+            glm::vec2 position = node->position;
+            Node* end;
             agent.GoToNode(end);
+         }
+         if (IsKeyPressed(KEY_UP))
+         {
+             Node* node = agent.GetNode();
+             glm::vec2 position = node->position;
+             Node* end;
+             agent.GoToNode(end);
+         }
+         if (IsKeyPressed(KEY_RIGHT))
+         {
+             Node* node = agent.GetNode();
+             glm::vec2 position = node->position;
+             Node* end;
+             agent.GoToNode(end);
+         }
+         if (IsKeyPressed(KEY_DOWN))
+         {
+             Node* node = agent.GetNode();
+             glm::vec2 position = node->position;
+             Node* end;
+             agent.GoToNode(end);
          }
         //----------------------------------------------------------------------------------
 

@@ -65,6 +65,7 @@ namespace AIForGames
         void Draw();
         void SetNode(Node* node);
         void SetSpeed(float speed);
+        Node* GetNode();
     };
 
     std::vector<Node*> AStarSearch(Node* startNode, Node* endNode);
