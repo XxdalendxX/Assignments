@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     int screenWidth = 1080;
     int screenHeight = 720;
 
-    InitWindow(screenWidth, screenHeight, "Heheheha");
+    InitWindow(screenWidth, screenHeight, "The first followed the path of the stars. The next, a path of gold and riches. And the third, the deepest pits of tartarus await for him.");
 
     SetTargetFPS(60);
     //--------------------------------------------------------------------------------------
@@ -63,7 +63,7 @@ int main(int argc, char* argv[])
 
     PathAgent agent;
     agent.SetNode(start);
-    agent.SetSpeed(192);
+    agent.SetSpeed(750);
 
     float time = (float)GetTime();
     float deltaTime;
@@ -79,33 +79,42 @@ int main(int argc, char* argv[])
         //----------------------------------------------------------------------------------
          if (IsKeyPressed(KEY_LEFT))
          {
-            Node* node = agent.GetNode();
-            glm::vec2 position = node->position;
-            Node* end;
-            agent.GoToNode(end);
+                 Node* node = agent.GetNode();
+                 int x = (int)floor(node->position.x / (float)90) - 1;
+                 int y = (int)floor(node->position.y / (float)90);
+                 Node* end = map.GetNode(x, y);
+                 agent.GoToNode(end);
          }
          if (IsKeyPressed(KEY_UP))
          {
-             Node* node = agent.GetNode();
-             glm::vec2 position = node->position;
-             Node* end;
-             agent.GoToNode(end);
+                 Node* node = agent.GetNode();
+                 int x = (int)floor(node->position.x / (float)90);
+                 int y = (int)floor(node->position.y / (float)90) - 1;
+                 Node* end = map.GetNode(x, y);
+                 agent.GoToNode(end);
          }
          if (IsKeyPressed(KEY_RIGHT))
          {
-             Node* node = agent.GetNode();
-             glm::vec2 position = node->position;
-             Node* end;
-             agent.GoToNode(end);
+                 Node* node = agent.GetNode();
+                 int x = (int)floor(node->position.x / (float)90) + 1;
+                 int y = (int)floor(node->position.y / (float)90);
+                 Node* end = map.GetNode(x, y);
+                 agent.GoToNode(end);
          }
          if (IsKeyPressed(KEY_DOWN))
          {
-             Node* node = agent.GetNode();
-             glm::vec2 position = node->position;
-             Node* end;
-             agent.GoToNode(end);
+                 Node* node = agent.GetNode();
+                 int x = (int)floor(node->position.x / (float)90);
+                 int y = (int)floor(node->position.y / (float)90) + 1;
+                 Node* end = map.GetNode(x, y);
+                 agent.GoToNode(end);
          }
         //----------------------------------------------------------------------------------
+        /*
+        Vector2 mousePos = GetMousePosition();
+        end = map.GetClosestNode(glm::vec2(mousePos.x, mousePos.y));
+        agent.GoToNode(end);
+        */
 
         // Draw
         //----------------------------------------------------------------------------------

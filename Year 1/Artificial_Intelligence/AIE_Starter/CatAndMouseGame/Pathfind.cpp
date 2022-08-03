@@ -312,7 +312,7 @@ namespace AIForGames
 
     float Heuristic(Node* target, Node* destination)
     {
-        float distance = ((target->position.x - destination->position.x) + (target->position.y - destination->position.y));
+        float distance = (abs(target->position.x - destination->position.x) + abs(target->position.y - destination->position.y));
         return distance;
     }
 
