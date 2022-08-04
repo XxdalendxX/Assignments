@@ -1,6 +1,6 @@
 #pragma once
 #include "Pathfind.h"
-#include "raygui.h"
+#include "raylib.h"
 
 namespace AIForGames
 {

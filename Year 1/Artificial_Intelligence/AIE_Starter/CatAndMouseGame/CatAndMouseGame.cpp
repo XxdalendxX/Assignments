@@ -23,7 +23,6 @@
 
 #define RAYGUI_IMPLEMENTATION
 #define RAYGUI_SUPPORT_ICONS
-#include "raygui.h"
 #include "Pathfind.h"
 #include "Cat.h"
 #include "Mouse.h"
@@ -35,8 +34,8 @@ int main(int argc, char* argv[])
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    int screenWidth = 1080;
-    int screenHeight = 720;
+    int screenWidth = 1900;
+    int screenHeight = 1000;
 
     InitWindow(screenWidth, screenHeight, "The first followed the path of the stars. The next, a path of gold and riches. And the third, the deepest pits of tartarus await for him.");
 
@@ -46,19 +45,22 @@ int main(int argc, char* argv[])
 
 
     std::vector<std::string> asciiMap;
-    asciiMap.push_back("100000000000");
-    asciiMap.push_back("111110111110");
-    asciiMap.push_back("000010100100");
-    asciiMap.push_back("011110101110");
-    asciiMap.push_back("010011101010");
-    asciiMap.push_back("010010001010");
-    asciiMap.push_back("011111111110");
-    asciiMap.push_back("000000000000");
-
+    asciiMap.push_back("000000000000000000000");
+    asciiMap.push_back("010000000001110001110");
+    asciiMap.push_back("011111011111011111010");
+    asciiMap.push_back("010001010010110001000");
+    asciiMap.push_back("000111010111101111010");
+    asciiMap.push_back("001101110101001001110");
+    asciiMap.push_back("011001000101001001000");
+    asciiMap.push_back("010011011111011111110");
+    asciiMap.push_back("010010000101001001010");
+    asciiMap.push_back("011111011111001111010");
+    asciiMap.push_back("000000000000000000000");
+    
     NodeMap map;
     map.Initialise(asciiMap, 90);
 
-    Node* start = map.GetNode(0, 0);
+    Node* start = map.GetNode(1, 1);
     Node* end = map.GetNode(11, 0);
     std::vector<Node*> nodeMapPath = AStarSearch(start, end);
     Color lineColour = { 255, 0, 255, 255 };
@@ -112,11 +114,6 @@ int main(int argc, char* argv[])
                  agent.GoToNode(end);
          }
         //----------------------------------------------------------------------------------
-        /*
-        Vector2 mousePos = GetMousePosition();
-        end = map.GetClosestNode(glm::vec2(mousePos.x, mousePos.y));
-        agent.GoToNode(end);
-        */
 
         // Draw
         //----------------------------------------------------------------------------------
@@ -129,6 +126,7 @@ int main(int argc, char* argv[])
 
         agent.Update(deltaTime);
         agent.Draw();
+
 
         EndDrawing();
         //----------------------------------------------------------------------------------

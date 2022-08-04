@@ -1,5 +1,5 @@
 #include "Pathfinder.h"
-#include "raygui.h"
+#include "raylib.h"
 #include <algorithm>
 
 namespace AIForGames
