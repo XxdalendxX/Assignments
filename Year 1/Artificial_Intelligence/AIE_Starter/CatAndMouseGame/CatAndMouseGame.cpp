@@ -69,8 +69,18 @@ int main(int argc, char* argv[])
     agent.SetNode(start);
     agent.SetSpeed(750);
 
+    Node* catStart = map.GetNode(19, 2);
+    Cat cat(catStart);
+    
+
     float time = (float)GetTime();
     float deltaTime;
+
+    Food food;
+    bool placedFood = false;
+    bool eatenFood = false;
+    food.Generate(map);
+    placedFood = true;
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -81,7 +91,25 @@ int main(int argc, char* argv[])
         
         // Update
         //----------------------------------------------------------------------------------
-         if (IsKeyPressed(KEY_LEFT))
+        if (placedFood == false)
+        {
+            new Food;
+            food.Generate(map);
+            placedFood = true;
+        }
+        if (food.placedNode == agent.GetNode() && eatenFood == false)
+        {
+            food.Destroy();
+            placedFood = false;
+            eatenFood = true;
+        }
+        else
+        {
+            eatenFood = false;
+        }
+        
+        
+        if (IsKeyPressed(KEY_LEFT))
          {
                  Node* node = agent.GetNode();
                  int x = (int)floor(node->position.x / (float)90) - 1;
@@ -124,8 +152,12 @@ int main(int argc, char* argv[])
         map.Draw();
         map.DrawPath(agent.m_path, lineColour);
 
+        food.Draw();
+
         agent.Update(deltaTime);
         agent.Draw();
+
+        cat.Draw();
 
 
         EndDrawing();

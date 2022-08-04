@@ -9,6 +9,7 @@ namespace AIForGames
     ////////////////////////////////Edge Struct/////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////
 
+
     Edge::Edge()
     {
         target = nullptr; cost = 0;
@@ -30,6 +31,7 @@ namespace AIForGames
 
     }
 
+    //connects node to another and applies a cost to it
     void Node::ConnectTo(Node* other, float cost)
     {
         connections.push_back(Edge(other, cost));
@@ -40,6 +42,8 @@ namespace AIForGames
     ////////////////////////////////Node Map Class//////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////
 
+
+    //crates the play map
     void NodeMap::Initialise(std::vector<std::string> asciiMap, int cellSize)
     {
         m_cellSize = cellSize;
@@ -93,11 +97,13 @@ namespace AIForGames
 
     }
 
+    //takes coordinates and finds the node associating with it
     Node* NodeMap::GetNode(int x, int y)
     {
         return m_nodes[x + m_width * y];
     }
 
+    //checks map for the closest node to the position
     Node* NodeMap::GetClosestNode(glm::vec2 worldPos)
     {
         int i = (int)(worldPos.x / m_cellSize);
@@ -110,6 +116,7 @@ namespace AIForGames
     
     }
 
+    //draws play map
     void NodeMap::Draw()
     {
         Color cellColor;
@@ -144,6 +151,7 @@ namespace AIForGames
         }
     }
 
+    //draws move lines
     void NodeMap::DrawPath(std::vector<Node*> nodeMapPath, Color colour)
     {
         for (int i = 1; i < nodeMapPath.size(); i++)
@@ -157,10 +165,13 @@ namespace AIForGames
         }
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////Path Agent class/////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////
 
+
+    //updates agent
     void PathAgent::Update(float deltaTime)
     {
         if (m_path.empty())
@@ -197,37 +208,45 @@ namespace AIForGames
         }
     }
     
+    //sends the agent towards a selected node
     void PathAgent::GoToNode(Node* node)
     {
         m_path = AStarSearch(m_currentNode, node);
         m_currentIndex = 0;
     }
 
+    //draws the agent
     void PathAgent::Draw()
     {
-        DrawCircle((int)m_position.x, (int)m_position.y, 16, { 255,255,0,255 });
+        DrawCircle((int)m_position.x, (int)m_position.y, 16, colour);
     }
 
+    //sets node and position
     void PathAgent::SetNode(Node* node)
     {
         m_currentNode = node;
         m_position = (node->position);
     }
 
+    //sets speed
     void PathAgent::SetSpeed(float speed)
     {
         m_speed = speed;
     }
 
+    //gets current node of agent
     Node* PathAgent::GetNode()
     {
         return m_currentNode;
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////Other///////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////
 
+
+    //searching algorithm to look for shortest path to end node
     std::vector<Node*> AStarSearch(Node* startNode, Node* endNode)
     {
         if (startNode == nullptr || endNode == nullptr)
@@ -310,11 +329,11 @@ namespace AIForGames
         return path;
     }
 
+    //formula for finding hScore
     float Heuristic(Node* target, Node* destination)
     {
         float distance = (abs(target->position.x - destination->position.x) + abs(target->position.y - destination->position.y));
         return distance;
     }
-
 
 }

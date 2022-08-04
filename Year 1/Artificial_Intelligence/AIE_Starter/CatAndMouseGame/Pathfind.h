@@ -57,6 +57,8 @@ namespace AIForGames
 
         float m_speed;
 
+        Color colour = { 255,165,0,255 };
+
     public:
         std::vector<Node*> m_path;
 
