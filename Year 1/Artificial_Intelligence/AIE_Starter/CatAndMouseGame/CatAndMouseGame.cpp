@@ -71,6 +71,11 @@ int main(int argc, char* argv[])
 
     Node* catStart = map.GetNode(19, 2);
     Cat cat(catStart);
+    cat.SetSpeed(128);
+
+    Node* mouseStart = map.GetNode(1, 3);
+    Mouse mouse(mouseStart);
+    mouse.SetSpeed(64);
     
 
     float time = (float)GetTime();
@@ -88,7 +93,7 @@ int main(int argc, char* argv[])
         float fTime = (float)GetTime();
         deltaTime = fTime - time;
         time = fTime;
-        
+
         // Update
         //----------------------------------------------------------------------------------
         if (placedFood == false)
@@ -103,44 +108,50 @@ int main(int argc, char* argv[])
             placedFood = false;
             eatenFood = true;
         }
+        else if (food.placedNode == mouse.GetNode() && eatenFood == false)
+        {
+            food.Destroy();
+            placedFood = false;
+            eatenFood = true;
+        }
         else
         {
             eatenFood = false;
         }
-        
-        
+
+
         if (IsKeyPressed(KEY_LEFT))
-         {
-                 Node* node = agent.GetNode();
-                 int x = (int)floor(node->position.x / (float)90) - 1;
-                 int y = (int)floor(node->position.y / (float)90);
-                 Node* end = map.GetNode(x, y);
-                 agent.GoToNode(end);
-         }
-         if (IsKeyPressed(KEY_UP))
-         {
-                 Node* node = agent.GetNode();
-                 int x = (int)floor(node->position.x / (float)90);
-                 int y = (int)floor(node->position.y / (float)90) - 1;
-                 Node* end = map.GetNode(x, y);
-                 agent.GoToNode(end);
-         }
-         if (IsKeyPressed(KEY_RIGHT))
-         {
-                 Node* node = agent.GetNode();
-                 int x = (int)floor(node->position.x / (float)90) + 1;
-                 int y = (int)floor(node->position.y / (float)90);
-                 Node* end = map.GetNode(x, y);
-                 agent.GoToNode(end);
-         }
-         if (IsKeyPressed(KEY_DOWN))
-         {
-                 Node* node = agent.GetNode();
-                 int x = (int)floor(node->position.x / (float)90);
-                 int y = (int)floor(node->position.y / (float)90) + 1;
-                 Node* end = map.GetNode(x, y);
-                 agent.GoToNode(end);
-         }
+        {
+            Node* node = agent.GetNode();
+            int x = (int)floor(node->position.x / (float)90) - 1;
+            int y = (int)floor(node->position.y / (float)90);
+            Node* end = map.GetNode(x, y);
+            agent.GoToNode(end);
+        }
+        if (IsKeyPressed(KEY_UP))
+        {
+            Node* node = agent.GetNode();
+            int x = (int)floor(node->position.x / (float)90);
+            int y = (int)floor(node->position.y / (float)90) - 1;
+            Node* end = map.GetNode(x, y);
+            agent.GoToNode(end);
+        }
+        if (IsKeyPressed(KEY_RIGHT))
+        {
+            Node* node = agent.GetNode();
+            int x = (int)floor(node->position.x / (float)90) + 1;
+            int y = (int)floor(node->position.y / (float)90);
+            Node* end = map.GetNode(x, y);
+            agent.GoToNode(end);
+        }
+        if (IsKeyPressed(KEY_DOWN))
+        {
+            Node* node = agent.GetNode();
+            int x = (int)floor(node->position.x / (float)90);
+            int y = (int)floor(node->position.y / (float)90) + 1;
+            Node* end = map.GetNode(x, y);
+            agent.GoToNode(end);
+        }
         //----------------------------------------------------------------------------------
 
         // Draw
@@ -157,6 +168,13 @@ int main(int argc, char* argv[])
         agent.Update(deltaTime);
         agent.Draw();
 
+        mouse.Draw();
+
+        if (cat.travelling == false)
+        {        
+            cat.UpdateCat(map);
+        }
+        cat.Update(deltaTime);
         cat.Draw();
 
 

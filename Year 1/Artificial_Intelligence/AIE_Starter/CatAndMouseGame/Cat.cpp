@@ -21,14 +21,26 @@ namespace AIForGames
 
 	}
 
-	void Cat::UpdateCat()
+	void Cat::UpdateCat(NodeMap acsii)
 	{
-
+		if (m_path.empty())
+		{
+			Wander(acsii);
+		}
 	}
 
-	void Cat::Wander()
+	void Cat::Wander(NodeMap acsii)
 	{
-
+		Node* end = nullptr;
+		while (m_path.empty())
+		{
+			int x = (rand() % 19 + 1);
+			int y = (rand() % 9 + 1);
+			end = acsii.GetNode(x, y);
+			m_path = AStarSearch(m_currentNode, end);
+		}
+		travelling = true;
+		
 	}
 
 	void Cat::Chase()
@@ -43,7 +55,7 @@ namespace AIForGames
 
 	void Cat::Draw()
 	{
-		DrawCircle((int)m_position.x, (int)m_position.y, 18, colour);
+		DrawCircle((int)m_position.x, (int)m_position.y, 24, colour);
 	}
 
 }

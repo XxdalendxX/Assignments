@@ -4,7 +4,7 @@
 
 namespace AIForGames
 {
-	class Mouse : PathAgent
+	class Mouse : public PathAgent
 	{
 		glm::vec2 m_position;
 
@@ -19,10 +19,16 @@ namespace AIForGames
 	public:
 		std::vector<Node*> m_path;
 
+		Mouse();
+		Mouse(Node* startpos);
+		~Mouse();
+
 		void UpdateMouse();
 		void CollectFood();
 		void Wander();
 		void Flee();
+		void Draw();
+
 
 	};
 

@@ -11,7 +11,26 @@ namespace AIForGames
     ////////////////////////////////////////////////////////////////////////////////////
 
 
+    Mouse::Mouse()
+    {
 
+    }
+
+    Mouse::Mouse(Node* startpos)
+    {
+        m_currentNode = startpos;
+        m_position = startpos->position;
+    }
+
+    Mouse:: ~Mouse()
+    {
+
+    }
+
+    void Mouse::Draw()
+    {
+        DrawCircle((int)m_position.x, (int)m_position.y, 16, colour);
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////Food Class/////////////////////////////////////////
