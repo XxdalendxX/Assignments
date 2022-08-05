@@ -103,6 +103,13 @@ namespace AIForGames
         return m_nodes[x + m_width * y];
     }
 
+    Node* NodeMap::GetNode(glm::vec2 worldPosition)
+    {
+        int x = (int)floor(worldPosition.x / (float)m_cellSize);
+        int y = (int)floor(worldPosition.y / (float)m_cellSize);
+        return m_nodes[x + m_width * y];
+    }
+
     //checks map for the closest node to the position
     Node* NodeMap::GetClosestNode(glm::vec2 worldPos)
     {
@@ -240,6 +247,11 @@ namespace AIForGames
     Node* PathAgent::GetNode()
     {
         return m_currentNode;
+    }
+
+    glm::vec2 PathAgent::GetPos()
+    {
+        return m_position;
     }
 
 

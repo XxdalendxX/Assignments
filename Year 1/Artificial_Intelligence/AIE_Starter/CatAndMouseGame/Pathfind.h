@@ -42,6 +42,7 @@ namespace AIForGames
     public:
         void Initialise(std::vector<std::string> asciiMap, int cellSize);
         Node* GetNode(int x, int y);
+        Node* GetNode(glm::vec2 worldPosition);
         Node* GetClosestNode(glm::vec2 worldPos);
         void Draw();
         void DrawPath(std::vector<Node*> nodeMapPath, Color colour);
@@ -70,6 +71,7 @@ namespace AIForGames
         void SetNode(Node* node, Node* secondStartpos);
         void SetSpeed(float speed);
         Node* GetNode();
+        glm::vec2 GetPos();
     };
 
     std::vector<Node*> AStarSearch(Node* startNode, Node* endNode);

@@ -4,7 +4,7 @@
 
 namespace AIForGames
 {
-	class Cat : public PathAgent
+	class Cat
 	{
 		glm::vec2 m_position;
 
@@ -27,11 +27,15 @@ namespace AIForGames
 		~Cat();
 
 
-		void UpdateCat(NodeMap acsii);
+		void CatStateCheck(NodeMap acsii);
+		void UpdateCat(float deltaTime);
 		void SwitchTarget();
 		void Wander(NodeMap acsii);
 		void Chase();
 		void Draw();
+		Node* GetNode();
+		void SetSpeed(int speed);
+
 
 	};
 }

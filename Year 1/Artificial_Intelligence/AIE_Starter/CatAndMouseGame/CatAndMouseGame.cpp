@@ -75,12 +75,12 @@ int main(int argc, char* argv[])
     //cat initialisation
     Node* catStart = map.GetNode(19, 2);
     Cat cat(catStart);
-    cat.SetSpeed(128);
+    cat.SetSpeed(300);
 
     //mouse initialisation
     Node* mouseStart = map.GetNode(1, 3);
     Mouse mouse(mouseStart, secondaryStartpos);
-    mouse.SetSpeed(64);
+    mouse.SetSpeed(250);
     
 
     float time = (float)GetTime();
@@ -110,13 +110,15 @@ int main(int argc, char* argv[])
             food.Generate(map);
             placedFood = true;
         }
-        if (food.placedNode == agent.GetNode() && eatenFood == false)
+        glm::vec2 agentPosition = agent.GetPos();
+        glm::vec2 mousePosition = mouse.GetPos();
+        if (food.placedNode == map.GetNode(agentPosition) && eatenFood == false)
         {
             food.Destroy();
             placedFood = false;
             eatenFood = true;
         }
-        else if (food.placedNode == mouse.GetNode() && eatenFood == false)
+        else if (food.placedNode == map.GetNode(mousePosition) && eatenFood == false)
         {
             food.Destroy();
             placedFood = false;
@@ -176,13 +178,25 @@ int main(int argc, char* argv[])
         agent.Update(deltaTime);
         agent.Draw();
 
+        if (mouse.travelling == false)
+        {
+            mouse.MouseStateCheck(map, food);
+        }
+        if (mouse.GetTargetNode() != food.placedNode)
+        {
+            mouse.travelling = false;
+            mouse.m_path.clear();
+            mouse.MouseStateCheck(map, food);
+        }
+        mouse.UpdateMouse(deltaTime);
+        mouse.Draw();
         mouse.Draw();
 
         if (cat.travelling == false)
         {        
-            cat.UpdateCat(map);
+            cat.CatStateCheck(map);
         }
-        cat.Update(deltaTime);
+        cat.UpdateCat(deltaTime);
         cat.Draw();
 
 
