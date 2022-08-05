@@ -39,11 +39,11 @@ int main(int argc, char* argv[])
 
     InitWindow(screenWidth, screenHeight, "The first followed the path of the stars. The next, a path of gold and riches. And the third, the deepest pits of tartarus await for him.");
 
-    SetTargetFPS(60);
+    SetTargetFPS(240);
     //--------------------------------------------------------------------------------------
 
 
-
+    //map initialisation
     std::vector<std::string> asciiMap;
     asciiMap.push_back("000000000000000000000");
     asciiMap.push_back("010000000001110001110");
@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
     asciiMap.push_back("010010000101001001010");
     asciiMap.push_back("011111011111001111010");
     asciiMap.push_back("000000000000000000000");
-    
+
     NodeMap map;
     map.Initialise(asciiMap, 90);
 
@@ -65,22 +65,28 @@ int main(int argc, char* argv[])
     std::vector<Node*> nodeMapPath = AStarSearch(start, end);
     Color lineColour = { 255, 0, 255, 255 };
 
+    Node* secondaryStartpos = map.GetNode(19, 9);
+
+    //player initialisation
     PathAgent agent;
-    agent.SetNode(start);
+    agent.SetNode(start, secondaryStartpos);
     agent.SetSpeed(750);
 
+    //cat initialisation
     Node* catStart = map.GetNode(19, 2);
     Cat cat(catStart);
     cat.SetSpeed(128);
 
+    //mouse initialisation
     Node* mouseStart = map.GetNode(1, 3);
-    Mouse mouse(mouseStart);
+    Mouse mouse(mouseStart, secondaryStartpos);
     mouse.SetSpeed(64);
     
 
     float time = (float)GetTime();
     float deltaTime;
-
+    
+    //food initialisation
     Food food;
     bool placedFood = false;
     bool eatenFood = false;
@@ -96,6 +102,8 @@ int main(int argc, char* argv[])
 
         // Update
         //----------------------------------------------------------------------------------
+        
+        //food placement and functionality
         if (placedFood == false)
         {
             new Food;
@@ -119,7 +127,7 @@ int main(int argc, char* argv[])
             eatenFood = false;
         }
 
-
+        //player movement
         if (IsKeyPressed(KEY_LEFT))
         {
             Node* node = agent.GetNode();

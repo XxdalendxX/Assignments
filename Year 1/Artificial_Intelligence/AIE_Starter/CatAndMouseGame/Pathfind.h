@@ -54,6 +54,8 @@ namespace AIForGames
 
         int m_currentIndex;
         Node* m_currentNode;
+        Node* m_startpos;
+        Node* m_secondaryStartpos;
 
         float m_speed;
 
@@ -65,7 +67,7 @@ namespace AIForGames
         void Update(float deltaTime);
         void GoToNode(Node* node);
         void Draw();
-        void SetNode(Node* node);
+        void SetNode(Node* node, Node* secondStartpos);
         void SetSpeed(float speed);
         Node* GetNode();
     };

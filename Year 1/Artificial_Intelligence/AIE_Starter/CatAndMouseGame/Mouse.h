@@ -11,6 +11,8 @@ namespace AIForGames
 		int m_currentIndex;
 		Node* m_currentNode;
 		Node* targetNode;
+		Node* m_startpos;
+		Node* m_secondaryStartpos;
 
 		float m_speed;
 
@@ -20,7 +22,7 @@ namespace AIForGames
 		std::vector<Node*> m_path;
 
 		Mouse();
-		Mouse(Node* startpos);
+		Mouse(Node* startpos, Node* secondStartpos);
 		~Mouse();
 
 		void UpdateMouse();

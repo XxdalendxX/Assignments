@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     int screenWidth = 1080;
     int screenHeight = 720;
 
-    InitWindow(screenWidth, screenHeight, "The first brings and aftermath, the second a bloodbath, and the third an aftermath...");
+    InitWindow(screenWidth, screenHeight, "The first brings a cataclysm, the third a bloodbath, and the second an aftermath...");
 
     SetTargetFPS(60);
     //--------------------------------------------------------------------------------------

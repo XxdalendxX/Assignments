@@ -16,10 +16,12 @@ namespace AIForGames
 
     }
 
-    Mouse::Mouse(Node* startpos)
+    Mouse::Mouse(Node* startpos, Node* secondStartpos)
     {
         m_currentNode = startpos;
         m_position = startpos->position;
+        m_startpos = startpos;
+        m_secondaryStartpos = secondStartpos;
     }
 
     Mouse:: ~Mouse()
