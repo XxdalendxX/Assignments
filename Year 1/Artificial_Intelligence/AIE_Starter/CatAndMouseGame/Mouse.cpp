@@ -36,7 +36,6 @@ namespace AIForGames
     void Food::Destroy()
     {
         placedNode = nullptr;
-        Food::~Food();
     }
 
     void Food::Draw()
@@ -168,6 +167,7 @@ namespace AIForGames
             m_currentIndex = 0;
         }
         travelling = true;
+
 
     }
 

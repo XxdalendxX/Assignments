@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
         glm::vec2 agentPosition = agent.GetPos();
         glm::vec2 mousePosition = mouse.GetPos();
         float timeSinceFoodDestroyed = time - foodDestroyed;
-        if (placedFood == false)
+        if (placedFood == false && timeSinceFoodDestroyed >= 10)
         {
             do
             {
@@ -116,6 +116,8 @@ int main(int argc, char* argv[])
                 food.Generate(map);
             } while (food.placedNode == map.GetNode(agentPosition) || food.placedNode == map.GetNode(mousePosition));
             placedFood = true;
+            mouse.travelling = false;
+            mouse.m_path.clear();
         }
         
         if (food.placedNode == map.GetNode(agentPosition) && eatenFood == false)
@@ -124,6 +126,8 @@ int main(int argc, char* argv[])
             placedFood = false;
             eatenFood = true;
             foodDestroyed = time;
+            mouse.travelling = false;
+            mouse.m_path.clear();
         }
         else if (food.placedNode == map.GetNode(mousePosition) && eatenFood == false)
         {
@@ -131,6 +135,8 @@ int main(int argc, char* argv[])
             placedFood = false;
             eatenFood = true;
             foodDestroyed = time;
+            mouse.travelling = false;
+            mouse.m_path.clear();
         }
         else
         {
@@ -228,7 +234,10 @@ int main(int argc, char* argv[])
         map.Draw();
         map.DrawPath(agent.m_path, lineColour);
 
-        food.Draw();
+        if (food.placedNode != nullptr)
+        {
+            food.Draw();
+        }
 
         agent.Update(deltaTime);
         agent.Draw();
@@ -237,12 +246,7 @@ int main(int argc, char* argv[])
         {
             mouse.MouseStateCheck(map, food);
         }
-        if (mouse.GetTargetNode() != food.placedNode)
-        {
-            mouse.travelling = false;
-            mouse.m_path.clear();
-            mouse.MouseStateCheck(map, food);
-        }
+
         mouse.UpdateMouse(deltaTime);
         mouse.Draw();
         mouse.Draw();
