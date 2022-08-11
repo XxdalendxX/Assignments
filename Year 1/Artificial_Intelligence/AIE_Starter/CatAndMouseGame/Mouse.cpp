@@ -21,7 +21,7 @@ namespace AIForGames
 
     }
 
-    void Food::Generate(NodeMap acsii)
+    void Food::Generate(NodeMap& acsii)
     {
         while (placedNode == nullptr)
         {
@@ -130,7 +130,7 @@ namespace AIForGames
         }
     }
 
-    void Mouse::MouseStateCheck(NodeMap acsii, Food food)
+    void Mouse::MouseStateCheck(NodeMap& acsii, Food food)
     {
         if (food.placedNode != nullptr)
         {
@@ -142,38 +142,39 @@ namespace AIForGames
         }
     }
 
-    void Mouse::CollectFood(NodeMap acsii, Food food)
+    void Mouse::CollectFood(NodeMap& acsii, Food food)
     {
         Node* end = nullptr;
-        while (m_path.empty())
-        {
-            while (end == nullptr)
-            {
-                glm::vec2 foodPos = food.placedNode->position;
-                end = acsii.GetNode(foodPos);
-            }
-            m_path = AStarSearch(m_currentNode, end);
-        }
+        glm::vec2 foodPos = food.placedNode->position;
+        end = acsii.GetNode(foodPos);
+        m_path = AStarSearch(m_currentNode, end);
         m_currentIndex = 0;
         travelling = true;
         targetNode = end;
     }
 
-    void Mouse::Wander(NodeMap acsii)
+    void Mouse::Wander(NodeMap& acsii)
     {
         Node* end = nullptr;
-        while (m_path.empty())
+        if (m_path.empty())
         {
-            while (end == nullptr)
+            while (end == nullptr || m_currentNode == end)
             {
                 int x = (rand() % 19 + 1);
                 int y = (rand() % 9 + 1);
                 end = acsii.GetNode(x, y);
             }
             m_path = AStarSearch(m_currentNode, end);
+            m_currentIndex = 0;
         }
-        m_currentIndex = 0;
         travelling = true;
 
+    }
+
+    void Mouse::SetNode(Node* node)
+    {
+        m_currentNode = node;
+        m_position = (node->position);
+        m_startpos = node;
     }
 }

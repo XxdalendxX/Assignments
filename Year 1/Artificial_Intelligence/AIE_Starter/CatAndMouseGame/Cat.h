@@ -1,5 +1,6 @@
 #pragma once
 #include "Pathfind.h"
+#include "Mouse.h"
 #include "raylib.h"
 
 namespace AIForGames
@@ -21,20 +22,27 @@ namespace AIForGames
 	public:
 		std::vector<Node*> m_path;
 		bool travelling = false;
+		bool chasingMouse = false;
+		bool chasingPlayer  = false;
 
 		Cat();
 		Cat(Node* startpos);
 		~Cat();
 
 
-		void CatStateCheck(NodeMap acsii);
+		void CatStateCheck(NodeMap& acsii, Mouse mouse, PathAgent player);
+		float MouseDistance(Mouse mouse);
+		float MouseDistance(PathAgent player);
 		void UpdateCat(float deltaTime);
 		void SwitchTarget();
-		void Wander(NodeMap acsii);
-		void Chase();
+		void Wander(NodeMap& acsii);
+		void Chase(NodeMap& acsii, Mouse mouse);
+		void Chase(NodeMap& acsii, PathAgent player);
 		void Draw();
 		Node* GetNode();
 		void SetSpeed(int speed);
+		glm::vec2 GetPos();
+
 
 
 	};

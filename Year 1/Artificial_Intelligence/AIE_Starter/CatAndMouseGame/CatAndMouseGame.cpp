@@ -85,6 +85,7 @@ int main(int argc, char* argv[])
 
     float time = (float)GetTime();
     float deltaTime;
+    float foodDestroyed = 0;
     
     //food initialisation
     Food food;
@@ -104,25 +105,32 @@ int main(int argc, char* argv[])
         //----------------------------------------------------------------------------------
         
         //food placement and functionality
-        if (placedFood == false)
-        {
-            new Food;
-            food.Generate(map);
-            placedFood = true;
-        }
         glm::vec2 agentPosition = agent.GetPos();
         glm::vec2 mousePosition = mouse.GetPos();
+        float timeSinceFoodDestroyed = time - foodDestroyed;
+        if (placedFood == false)
+        {
+            do
+            {
+                food.placedNode = nullptr;
+                food.Generate(map);
+            } while (food.placedNode == map.GetNode(agentPosition) || food.placedNode == map.GetNode(mousePosition));
+            placedFood = true;
+        }
+        
         if (food.placedNode == map.GetNode(agentPosition) && eatenFood == false)
         {
             food.Destroy();
             placedFood = false;
             eatenFood = true;
+            foodDestroyed = time;
         }
         else if (food.placedNode == map.GetNode(mousePosition) && eatenFood == false)
         {
             food.Destroy();
             placedFood = false;
             eatenFood = true;
+            foodDestroyed = time;
         }
         else
         {
@@ -162,6 +170,53 @@ int main(int argc, char* argv[])
             Node* end = map.GetNode(x, y);
             agent.GoToNode(end);
         }
+
+        //cat capture
+        if (map.GetNode(cat.GetPos()) == map.GetNode(mousePosition))
+        {
+            if (cat.GetNode() == mouseStart)
+            {
+                mouse.SetNode(secondaryStartpos);
+                mouse.m_path.clear();
+                mouse.travelling = false;
+                cat.m_path.clear();
+                cat.travelling = false;
+                cat.chasingMouse = false;
+                cat.chasingPlayer = false;
+            }
+            else
+            {
+                mouse.SetNode(mouseStart);
+                mouse.m_path.clear();
+                mouse.travelling = false;
+                cat.m_path.clear();
+                cat.travelling = false;
+                cat.chasingMouse = false;
+                cat.chasingPlayer = false;
+            }
+        }
+        if (map.GetNode(cat.GetPos()) == map.GetNode(agentPosition))
+        {
+            if (cat.GetNode() == start)
+            {
+                agent.SetNode(secondaryStartpos);
+                agent.m_path.clear();
+                cat.m_path.clear();
+                cat.travelling = false;
+                cat.chasingPlayer = false;
+                cat.chasingMouse = false;
+            }
+            else
+            {
+                agent.SetNode(start);
+                agent.m_path.clear();
+                cat.m_path.clear();
+                cat.travelling = false;
+                cat.chasingPlayer = false;
+                cat.chasingMouse = false;
+            }
+        }
+
         //----------------------------------------------------------------------------------
 
         // Draw
@@ -191,11 +246,8 @@ int main(int argc, char* argv[])
         mouse.UpdateMouse(deltaTime);
         mouse.Draw();
         mouse.Draw();
-
-        if (cat.travelling == false)
-        {        
-            cat.CatStateCheck(map);
-        }
+       
+        cat.CatStateCheck(map, mouse, agent);
         cat.UpdateCat(deltaTime);
         cat.Draw();
 

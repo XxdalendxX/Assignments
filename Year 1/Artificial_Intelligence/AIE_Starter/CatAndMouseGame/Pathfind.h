@@ -64,11 +64,13 @@ namespace AIForGames
 
     public:
         std::vector<Node*> m_path;
+        bool chased = false;
 
         void Update(float deltaTime);
         void GoToNode(Node* node);
         void Draw();
         void SetNode(Node* node, Node* secondStartpos);
+        void SetNode(Node* node);
         void SetSpeed(float speed);
         Node* GetNode();
         glm::vec2 GetPos();

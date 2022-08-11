@@ -16,7 +16,7 @@ namespace AIForGames
 
 		Food();
 		~Food();
-		void Generate(NodeMap acsii);
+		void Generate(NodeMap& acsii);
 		void Destroy();
 		void Draw();
 	};
@@ -38,22 +38,25 @@ namespace AIForGames
 	public:
 		std::vector<Node*> m_path;
 		bool travelling = false;
+		bool chased = false;
 
 
 		Mouse();
 		Mouse(Node* startpos, Node* secondStartpos);
 		~Mouse();
 
-		void MouseStateCheck(NodeMap acsii, Food food);
+		void MouseStateCheck(NodeMap& acsii, Food food);
 		void UpdateMouse(float deltaTime);
-		void CollectFood(NodeMap acsii, Food food);
-		void Wander(NodeMap acsii);
+		void CollectFood(NodeMap& acsii, Food food);
+		void Wander(NodeMap& acsii);
 		void Flee();
 		void Draw();
 		Node* GetNode();
 		Node* GetTargetNode();
 		glm::vec2 GetPos();
 		void SetSpeed(int speed);
+		void SetNode(Node* node);
+
 	};
 
 	

@@ -237,6 +237,13 @@ namespace AIForGames
         m_secondaryStartpos = secondStartpos;
     }
 
+    void PathAgent::SetNode(Node* node)
+    {
+        m_currentNode = node;
+        m_position = (node->position);
+        m_startpos = node;
+    }
+
     //sets speed
     void PathAgent::SetSpeed(float speed)
     {
