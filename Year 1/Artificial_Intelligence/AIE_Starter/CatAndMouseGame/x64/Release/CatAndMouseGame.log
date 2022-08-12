@@ -1,0 +1,53 @@
+﻿  CatAndMouseGame.cpp
+  DecisionTree.cpp
+  Pathfind.cpp
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(49,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(52,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(53,37): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(144,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(144,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(143,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(143,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(152,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(152,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(169,71): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Pathfind.cpp(169,44): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Cat.cpp
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Cat.cpp(201,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Cat.cpp(206,9): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Cat.cpp(207,9): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Cat.cpp(208,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Cat.cpp(214,9): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Cat.cpp(215,9): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Cat.cpp(216,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Mouse.cpp
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\CatAndMouseGame\Mouse.cpp(94,13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 471 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  CatAndMouseGame.vcxproj -> C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\x64\Release\CatAndMouseGame.exe

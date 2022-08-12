@@ -1,0 +1,26 @@
+﻿  AStarSearch.cpp
+  Pathfinder.cpp
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(45,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(48,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(49,37): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(130,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(130,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(129,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(129,37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(138,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(138,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(154,71): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\AStarSearch\Pathfinder.cpp(154,44): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 341 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  AStarSearch.vcxproj -> C:\Users\s214266\Documents\Assignments\Year 1\Artificial_Intelligence\AIE_Starter\x64\Release\AStarSearch.exe
