@@ -77,22 +77,35 @@ int main(int argc, char* argv[])
     Cat cat(catStart);
     cat.SetSpeed(300);
 
-    //mouse initialisation
-    Node* mouseStart = map.GetNode(1, 3);
-    Mouse mouse(mouseStart, secondaryStartpos);
-    mouse.SetSpeed(250);
-    
-
-    float time = (float)GetTime();
-    float deltaTime;
-    float foodDestroyed = 0;
-    
     //food initialisation
     Food food;
     bool placedFood = false;
     bool eatenFood = false;
     food.Generate(map);
     placedFood = true;
+
+    //mouse initialisation
+    Node* mouseStart = map.GetNode(1, 3);
+    ActionDecision trueAction([&map, &food](Mouse& mouse, float deltaTime)
+        {
+            mouse.CollectFood(map, food);
+        });
+    ActionDecision falseAction([&map](Mouse& mouse, float deltaTime)
+        {
+            mouse.Wander(map);
+        });
+    ABDecision foodDetection(&trueAction, &falseAction, [&food](Mouse& mouse)
+        {
+            bool foodPresent = food.placedNode != nullptr;
+            return foodPresent;
+        });
+    Mouse mouse(mouseStart, secondaryStartpos, &foodDetection);
+    mouse.SetSpeed(250);
+    
+
+    float time = (float)GetTime();
+    float deltaTime;
+    float foodDestroyed = 0;
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -244,7 +257,7 @@ int main(int argc, char* argv[])
 
         if (mouse.travelling == false)
         {
-            mouse.MouseStateCheck(map, food);
+            mouse.MouseStateCheck(map, food, deltaTime);
         }
 
         mouse.UpdateMouse(deltaTime);

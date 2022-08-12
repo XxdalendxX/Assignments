@@ -1,5 +1,6 @@
 #pragma once
 #include "Pathfind.h"
+#include "DecisionTree.h"
 #include "raylib.h"
 
 namespace AIForGames
@@ -35,6 +36,8 @@ namespace AIForGames
 
 		Color colour = { 128,64,0,255 };
 
+		Decision* m_decisionRoot;
+
 	public:
 		std::vector<Node*> m_path;
 		bool travelling = false;
@@ -42,10 +45,10 @@ namespace AIForGames
 
 
 		Mouse();
-		Mouse(Node* startpos, Node* secondStartpos);
+		Mouse(Node* startpos, Node* secondStartpos, Decision* root);
 		~Mouse();
 
-		void MouseStateCheck(NodeMap& acsii, Food food);
+		void MouseStateCheck(NodeMap& acsii, Food food, float deltaTime);
 		void UpdateMouse(float deltaTime);
 		void CollectFood(NodeMap& acsii, Food food);
 		void Wander(NodeMap& acsii);

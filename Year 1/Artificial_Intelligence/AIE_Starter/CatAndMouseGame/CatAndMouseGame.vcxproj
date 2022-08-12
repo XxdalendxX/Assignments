@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CatAndMouseGame.cpp" />
+    <ClCompile Include="DecisionTree.cpp" />
     <ClCompile Include="Pathfind.cpp" />
     <ClCompile Include="Cat.cpp" />
     <ClCompile Include="Mouse.cpp" />
@@ -149,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cat.h" />
+    <ClInclude Include="DecisionTree.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Pathfind.h" />
   </ItemGroup>
