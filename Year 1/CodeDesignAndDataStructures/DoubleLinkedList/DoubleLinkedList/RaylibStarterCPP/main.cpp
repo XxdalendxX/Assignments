@@ -28,6 +28,7 @@
 #include <string>
 
 #include "Node.h"
+#include "DLL.h"
 int main(int argc, char* argv[])
 {
     // Initialization
@@ -45,7 +46,7 @@ int main(int argc, char* argv[])
     int positionBoxValue = 0;
     bool positionBoxEditMode = false;
 
-    Node m_node;
+    DLL dll;
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -72,52 +73,52 @@ int main(int argc, char* argv[])
         //runs corresponding function for each button
         if (GuiButton(Rectangle{ 160, 25, 125, 30 }, GuiIconText(RICON_OK_TICK, "Insert at head")))
         {
-            m_node.InsertHeadNode(valueBoxValue);
+            dll.InsertHeadNode(valueBoxValue);
         }
 
         if (GuiButton(Rectangle{ 160, 60, 125, 30 }, GuiIconText(RICON_OK_TICK, "Insert at tail")))
         {
-            m_node.InsertTailNode(valueBoxValue);
+            dll.InsertTailNode(valueBoxValue);
         }
 
         if (GuiButton(Rectangle{ 160, 95, 125, 30 }, GuiIconText(RICON_OK_TICK, "Insert at position")))
         {
-            m_node.InsertArbitraryNode(positionBoxValue, valueBoxValue);
+            dll.InsertArbitraryNode(positionBoxValue, valueBoxValue);
         }
 
         if (GuiButton(Rectangle{ 295, 25, 125, 30 }, GuiIconText(RICON_CROSS, "Delete from head")))
         {
-            m_node.DeleteHeadNode();
+            dll.DeleteHeadNode();
         }
 
         if (GuiButton(Rectangle{ 295, 60, 125, 30 }, GuiIconText(RICON_CROSS, "Delete from tail")))
         {
-            m_node.DeleteTailNode();
+            dll.DeleteTailNode();
         }
 
         if (GuiButton(Rectangle{ 295, 95, 125, 30 }, GuiIconText(RICON_CROSS, "Delete at position")))
         {
-            m_node.DeleteArbitraryNode(positionBoxValue);
+            dll.DeleteArbitraryNode(positionBoxValue);
         }
 
         if (GuiButton(Rectangle{ 25, 150, 125, 30 }, GuiIconText(RICON_ARROW_RIGHT_FILL, "Sort List")))
         {
-            m_node.ListSort();
+            dll.ListSort();
         }
 
         if (GuiButton(Rectangle{ 160, 150, 125, 30 }, GuiIconText(RICON_HEART, "Head & tail values")))
         {
-            m_node.headVal = m_node.ReturnHeadValue();
-            m_node.tailVal = m_node.ReturnTailValue();
+            dll.headVal = dll.ReturnHeadValue();
+            dll.tailVal = dll.ReturnTailValue();
         }
 
         if (GuiButton(Rectangle{ 295, 150, 125, 30 }, GuiIconText(RICON_STAR, "Check node total")))
         {
-            m_node.nodeTot = m_node.NodeCount();
+            dll.nodeTot = dll.NodeCount();
         }
 
         //Displays nodes in list order from head to tail every frame and depending on number displays in a different colour
-        Node* currentNode = m_node.head->next;
+        Node* currentNode = dll.head->next;
         int count = 0;
         while (currentNode->next != nullptr)
         {
@@ -216,19 +217,19 @@ int main(int argc, char* argv[])
         
         //displays set values for the tailVal, headVal and nodeTot updated by corresponding functions
         DrawText("Head value: ", 25, 200, 24, BLACK);
-        DrawText(std::to_string(m_node.headVal).c_str(), 200, 200, 24, BLACK);
+        DrawText(std::to_string(dll.headVal).c_str(), 200, 200, 24, BLACK);
 
         DrawText("Tail value: ", 25, 260, 24, BLACK);
-        DrawText(std::to_string(m_node.tailVal).c_str(), 200, 260, 24, BLACK);
+        DrawText(std::to_string(dll.tailVal).c_str(), 200, 260, 24, BLACK);
 
         DrawText("Node Total: ", 25, 320, 24, BLACK);
-        if (m_node.nodeTot == 0)
+        if (dll.nodeTot == 0)
         {
             DrawText("There are currenetly no nodes", 200, 320, 24, BLACK);
         }
         else
         {
-            DrawText(std::to_string(m_node.nodeTot).c_str(), 200, 320, 24, BLACK);
+            DrawText(std::to_string(dll.nodeTot).c_str(), 200, 320, 24, BLACK);
 
         }
 

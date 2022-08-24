@@ -77,7 +77,7 @@ void TreeNode::Draw(int x, int y, bool selected)
 
 	DrawCircle(x, y, 30, YELLOW);
 
-	if (selected == true)
+	if (found == true)
 		DrawCircle(x, y, 28, GREEN);
 	else
 		DrawCircle(x, y, 28, BLACK);

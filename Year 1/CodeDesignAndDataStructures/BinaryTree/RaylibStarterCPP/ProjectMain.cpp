@@ -44,6 +44,7 @@ int main(int argc, char* argv[])
     bool valueBoxEditMode = false;
     BinaryTree tree;
     TreeNode* selectedNode = nullptr;
+    TreeNode* foundNode = nullptr;
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -71,6 +72,19 @@ int main(int argc, char* argv[])
         if (GuiButton(Rectangle{ 160, 55, 125, 30 }, GuiIconText(RICON_CROSS, "Remove value node")))
         {
             tree.Remove(valueBoxValue);
+        }
+
+        if (GuiButton(Rectangle{ 160, 90, 125, 30 }, GuiIconText(RICON_INFO, "Find value node")))
+        {
+            if (foundNode != nullptr)
+            {
+                foundNode->found = false;
+            }
+            foundNode = tree.Find(valueBoxValue);
+            if (foundNode != nullptr)
+            {
+                foundNode->found = true;
+            }
         }
 
         tree.Draw(selectedNode);

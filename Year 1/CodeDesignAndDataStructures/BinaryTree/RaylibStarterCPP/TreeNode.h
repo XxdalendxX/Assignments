@@ -18,10 +18,11 @@ public:
 	void SetLeft(TreeNode* node);
 	void SetRight(TreeNode* node);
 
-	void Draw(int x, int y, bool selected = false);
+	void Draw(int x, int y, bool found);
 
 public:
 	int m_value;
+	bool found = false;
 
 	TreeNode* left;
 	TreeNode* right;

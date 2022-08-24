@@ -152,6 +152,7 @@ bool BinaryTree::FindNode(int searchVal, TreeNode*& node, TreeNode*& parentNode)
 			}
 			else
 			{
+				node->found = true;
 				return true;
 			}
 		}
