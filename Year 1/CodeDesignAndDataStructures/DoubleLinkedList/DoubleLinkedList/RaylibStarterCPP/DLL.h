@@ -8,10 +8,6 @@ public:
 	Node* head;
 	Node* tail;
 
-	int tailVal;
-	int headVal;
-	int nodeTot;
-
 	DLL();
 	~DLL();
 
@@ -24,7 +20,7 @@ public:
 
 	int NodeCount();
 	Node* NodeFind(int position);
-	bool NodeCheck();
+	bool IsEmpty();
 
 	int ReturnHeadValue();
 	int ReturnTailValue();

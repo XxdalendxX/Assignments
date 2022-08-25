@@ -46,6 +46,10 @@ int main(int argc, char* argv[])
     int positionBoxValue = 0;
     bool positionBoxEditMode = false;
 
+    int headVal = 0;
+    int tailVal = 0;
+    int nodeTot = 0;
+
     DLL dll;
 
     // Main game loop
@@ -108,13 +112,13 @@ int main(int argc, char* argv[])
 
         if (GuiButton(Rectangle{ 160, 150, 125, 30 }, GuiIconText(RICON_HEART, "Head & tail values")))
         {
-            dll.headVal = dll.ReturnHeadValue();
-            dll.tailVal = dll.ReturnTailValue();
+            headVal = dll.ReturnHeadValue();
+            tailVal = dll.ReturnTailValue();
         }
 
         if (GuiButton(Rectangle{ 295, 150, 125, 30 }, GuiIconText(RICON_STAR, "Check node total")))
         {
-            dll.nodeTot = dll.NodeCount();
+            nodeTot = dll.NodeCount();
         }
 
         //Displays nodes in list order from head to tail every frame and depending on number displays in a different colour
@@ -217,19 +221,19 @@ int main(int argc, char* argv[])
         
         //displays set values for the tailVal, headVal and nodeTot updated by corresponding functions
         DrawText("Head value: ", 25, 200, 24, BLACK);
-        DrawText(std::to_string(dll.headVal).c_str(), 200, 200, 24, BLACK);
+        DrawText(std::to_string(headVal).c_str(), 200, 200, 24, BLACK);
 
         DrawText("Tail value: ", 25, 260, 24, BLACK);
-        DrawText(std::to_string(dll.tailVal).c_str(), 200, 260, 24, BLACK);
+        DrawText(std::to_string(tailVal).c_str(), 200, 260, 24, BLACK);
 
         DrawText("Node Total: ", 25, 320, 24, BLACK);
-        if (dll.nodeTot == 0)
+        if (nodeTot == 0)
         {
             DrawText("There are currenetly no nodes", 200, 320, 24, BLACK);
         }
         else
         {
-            DrawText(std::to_string(dll.nodeTot).c_str(), 200, 320, 24, BLACK);
+            DrawText(std::to_string(nodeTot).c_str(), 200, 320, 24, BLACK);
 
         }
 

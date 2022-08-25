@@ -1,38 +1,42 @@
 #include "DLL.h"
 #include "Node.h"
 
-class DLL
-{
-	DLL()
+
+	DLL::DLL()
 	{
-		head = new Node*(0, nullptr, nullptr);
-		tail = new Node*(0, nullptr, head);
+		head = new Node(0, nullptr, nullptr);
+		tail = new Node(0, nullptr, head);
 		head->next = tail;
 	}
 
-	~DLL()
+	DLL::~DLL()
 	{
-
+		while (IsEmpty() == false)
+		{
+			DeleteHeadNode();
+		}
+		delete tail;
+		delete head;
 	}
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 //Deletes or inserts nodes either at the head, tail or an assigned point in the list////////
 ////////////////////////////////////////////////////////////////////////////////////////////
-	void InsertHeadNode(int value)
+	void DLL::InsertHeadNode(int value)
 	{
 		Node* newNode = new Node(value, head->next, head);
 		head->next->previous = newNode;
 		head->next = newNode;
 	}
 
-	void InsertTailNode(int value)
+	void DLL::InsertTailNode(int value)
 	{
 		Node* newNode = new Node(value, tail, tail->previous);
 		tail->previous->next = newNode;
 		tail->previous = newNode;
 	}
 
-	void DeleteHeadNode()
+	void DLL::DeleteHeadNode()
 	{
 		Node* node = head->next;
 		if (node->next == nullptr)
@@ -44,7 +48,7 @@ class DLL
 		delete node;
 	}
 
-	void DeleteTailNode()
+	void DLL::DeleteTailNode()
 	{
 		Node* node = tail->previous;
 		if (node->previous == nullptr)
@@ -56,7 +60,7 @@ class DLL
 		delete node;
 	}
 
-	void InsertArbitraryNode(int position, int value)
+	void DLL::InsertArbitraryNode(int position, int value)
 	{
 		if (NodeCount() < position)
 		{
@@ -68,7 +72,7 @@ class DLL
 		insertPos->next = newNode;
 	}
 
-	void DeleteArbitraryNode(int position)
+	void DLL::DeleteArbitraryNode(int position)
 	{
 		if (NodeCount() < position)
 		{
@@ -87,7 +91,7 @@ class DLL
 	////////////////////////////////////////////////////////////////////////////////////////////
 	//Counts total nodes, finds specific node for use, and checks if list is empty////////////// 
 	////////////////////////////////////////////////////////////////////////////////////////////
-	int NodeCount()
+	int DLL::NodeCount()
 	{
 		int count = 0;
 		Node* currentNode = head;
@@ -103,7 +107,7 @@ class DLL
 		return count;
 	}
 
-	Node* NodeFind(int position)
+	Node* DLL::NodeFind(int position)
 	{
 		int count = 0;
 		Node* currentNode = head;
@@ -116,7 +120,7 @@ class DLL
 		return currentNode;
 	}
 
-	bool NodeCheck()
+	bool DLL::IsEmpty()
 	{
 		if (head->next != tail)
 		{
@@ -127,19 +131,19 @@ class DLL
 	////////////////////////////////////////////////////////////////////////////////////////////
 	//Returns current head and tail values in the list./////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////
-	int ReturnHeadValue()
+	int DLL::ReturnHeadValue()
 	{
 		return head->next->_value;
 	}
 
-	int ReturnTailValue()
+	int DLL::ReturnTailValue()
 	{
 		return tail->previous->_value;
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////
 	//Sorts the list in ascending order/////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////
-	void ListSort()
+	void DLL::ListSort()
 	{
 		Node* currentNode = head->next;
 		bool swapped = true;
@@ -168,4 +172,3 @@ class DLL
 		}
 
 	}
-};
